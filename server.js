@@ -8,17 +8,20 @@ app.use('/css',express.static(__dirname + 'public/css'))
 app.use('/js',express.static(__dirname + 'public/js'))
 app.use('/picture',express.static(__dirname + 'public/picture '))
 
-app.set('views','./views')
 app.set('view engine','ejs')
+app.set('views','views')
 
 app.get('/signin',(req,res) => {
-    res.render('signin');
+    res.render('pages/signin');
 });
 app.get('/login',(req,res) => {
-    res.render('login');
+    res.render('pages/login', {
+        pageTitle: "Login",
+        path: "login"
+    });
 });
 app.post('/home',(req,res) => {
-    res.render('home');
+    res.render('pages/home');
 });
 
-app.listen(port, () => console.info(`port ${port}`))
+app.listen(port, () => console.info(`listening in port ${port}`))
