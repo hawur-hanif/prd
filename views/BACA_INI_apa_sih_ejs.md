@@ -7,7 +7,7 @@ kalo mau make variable lu make: <br>
 <%= namaVariabel %>
 <br>
 <br>
-variable ini di deklarasiin di backend pake
+variable ini di deklarasiin di backend pake <br>
 server.render(path, {data}) <br>
 
 <br>
