@@ -21,4 +21,4 @@ app.post('/home',(req,res) => {
     res.render('home');
 });
 
-app.listen(port, () => console.info('port {port}'))
+app.listen(port, () => console.info(`port ${port}`))

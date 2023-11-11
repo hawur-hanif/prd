@@ -1,0 +1,1 @@
+Jadi Routes ini tuh biar di bagi bagi gitu rendering ejsnya di file terpisah. biar gk semuanya di satu file server.js
