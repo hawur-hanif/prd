@@ -9,8 +9,8 @@ kalo mau make variable lu make: <br>
 <br>
 variable ini di deklarasiin di backend pake
 server.render(path, {data}) <br>
-                      /\ <br>
-                       |-- datanya ditaro sini <br>
+...................../\ <br>
+......................|-- datanya ditaro sini <br>
 <br>
 kalo mau tau tentang template buka di folder reusables <br>
 trus buka file yg ada BACA_INI nya <br>
