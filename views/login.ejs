@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="/css/login.css">
+    <body class="bgImage">
+        
+    </body>
+    <form action="home" id="loginForm" method="post" class="loginForm" >
+        
+        <div class="container">
+            <h1 class="judul">
+                Agrishop
+            </h1>
+            <h2 class="judul">
+                Masuk
+            </h2>
+            <p class="judul">
+                Belum punya akun? <a href="signin">Daftar</a>
+            </p>
+        </div>
+        <div class="container">
+            <label for="email"><b>Email</b></label>
+            <input type="text" id="email" placeholder="Masukkan Email" name="email" required >
+
+            <label for="password"><b>Kata Sandi</b></label>
+            <div class="pass">
+            <input type="password" id="password" placeholder="Masukkan Kata Sandi" name="password" required>
+            <script src="https://kit.fontawesome.com/d55d71e4f6.js" crossorigin="anonymous"></script>
+            <input type="checkbox" onclick="showPass()" id="showPass">
+            <label for="showPass" class="pass"></label>
+            </div>
+
+            <script>
+                function showPass(){
+                    var x = document.getElementById("password");
+                    if (x.type === "password"){
+                        x.type = "text";
+                    }else{
+                        x.type = "password"
+                    }
+                }
+            </script>
+
+            <a href="lupaSandi.html">Lupa Kata Sandi?</a>
+
+            <div class="pass">
+            <label for="remember">Ingat Saya</label>
+            <input type="checkbox" checked="checked" name="remember">
+            </div>
+            <button type="submit" class="button">Masuk</button>
+
+        </div>
+        <div class="container">
+            <p class="result"></p>
+        </div>
+    </form>
+</html>

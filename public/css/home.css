@@ -1,0 +1,41 @@
+.topSection{
+    display: flex;
+    place-items: top;
+    width: max-content;
+}
+.search{
+    max-width: 75%;
+    display: inline;
+}
+.blockDisplay{
+    border-radius: 3px;
+    border: solid darkgray;
+    box-shadow: inset;
+    margin: 7px;
+    max-width: 200px;
+    max-height: 300px;
+}
+.imgDisplay{
+    height: auto;
+    max-width: 100%;
+
+}
+img{
+    height: auto;
+    max-width: 100%;
+}
+ul{
+    display: inline;
+    padding-left: 5px;
+    margin: 2px;
+    list-style-type: none;
+}
+.jenisProduk{
+    padding: auto;
+    margin: 1px;
+}
+.deskripsiProduk{
+    padding: auto;
+    margin: 1px;
+    justify-self: start;
+}
