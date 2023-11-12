@@ -1,6 +1,8 @@
 var express = require('express');
 const ejs = require('ejs');
+const mongoose = require('mongoose')
 const port = 8080
+require('dotenv').config()
 
 var app = express();
 app.use(express.static('public'));
@@ -9,13 +11,12 @@ app.use('/js',express.static(__dirname + 'public/js'))
 app.use('/picture',express.static(__dirname + 'public/picture '))
 app.use(express.urlencoded({extended:true}))
 
-//routes
-const loginRoutes = require('./routes/login')
-
 
 app.set('view engine','ejs')
 app.set('views','views')
 
+//routes
+const loginRoutes = require('./routes/login')
 app.use(loginRoutes)
 
 app.get('/signin',(req,res) => {
@@ -25,5 +26,16 @@ app.get('/signin',(req,res) => {
 app.get('/home',(req,res) => {
     res.render('pages/home');
 });
+
+// connecting to database
+mongoose
+  .connect(process.env.DB_URL)
+  .then((result) => {
+    app.listen(process.env.PORT || 3000);
+    console.log('Connected to database')
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 app.listen(port, () => console.info(`listening in port ${port}`))
