@@ -7,20 +7,22 @@ app.use(express.static('public'));
 app.use('/css',express.static(__dirname + 'public/css'))
 app.use('/js',express.static(__dirname + 'public/js'))
 app.use('/picture',express.static(__dirname + 'public/picture '))
+app.use(express.urlencoded({extended:true}))
+
+//routes
+const loginRoutes = require('./routes/login')
+
 
 app.set('view engine','ejs')
 app.set('views','views')
 
+app.use(loginRoutes)
+
 app.get('/signin',(req,res) => {
     res.render('pages/signin');
 });
-app.get('/login',(req,res) => {
-    res.render('pages/login', {
-        pageTitle: "Login",
-        path: "login"
-    });
-});
-app.post('/home',(req,res) => {
+
+app.get('/home',(req,res) => {
     res.render('pages/home');
 });
 
