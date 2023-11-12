@@ -1,19 +1,103 @@
+html, body{
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
 .topSection{
-    display: flex;
+    margin: 0;
+    padding: 3px;
+    display: inline;
     place-items: top;
     width: max-content;
+    text-decoration: none;
+    font-size: larger;
+    width: 100%;
 }
 .search{
     max-width: 75%;
     display: inline;
 }
+.navtop{
+    background-color: aliceblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+    margin-left: 50%;
+    transform: translate(-50%,0);
+    position: relative;
+    font-size: 20px;
+    width: 100%;
+}
+.navtop .navtopBlock{
+    
+    border: 3px black solid;   
+    margin-top: 5px;
+    text-decoration: none;
+    padding: 5px;
+    
+}
+.promosiSlideshow{
+    width: 100%;
+    position: relative;
+    margin: auto;
+}
+.slideshow{
+    display: none;
+}
+.prev,.next{
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+.next{
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+.prev:hover, .next:hover{
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.dot{
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+.active, .dot:hover{
+    background-color: gray;
+}
+.fade{
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+@keyframes fade{
+    from{opacity: 0.5;}
+    to{opacity: 1;}
+}
 .blockDisplay{
+    zoom: 1;
+    display: inline-block;
     border-radius: 3px;
     border: solid darkgray;
     box-shadow: inset;
-    margin: 7px;
+    margin: 7px;    
     max-width: 200px;
-    max-height: 300px;
+    max-height: 200px;
 }
 .imgDisplay{
     height: auto;
@@ -25,14 +109,31 @@ img{
     max-width: 100%;
 }
 ul{
-    display: inline;
+    display: inline-block;
+    overflow-x: scroll;
     padding-left: 5px;
     margin: 2px;
     list-style-type: none;
+    width: 100vw;
+    white-space: nowrap;
+
 }
 .jenisProduk{
     padding: auto;
     margin: 1px;
+}
+.deskripsiProduk{
+    padding: auto;
+    margin: 1px;
+    justify-self: start;
+}
+::-webkit-scrollbar{
+    width: 7px;
+    color: black;
+}
+::-webkit-scrollbar-track{
+    width: 7px;
+    color: bisque;
 }
 .deskripsiProduk{
     padding: auto;
