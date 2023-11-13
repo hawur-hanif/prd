@@ -1,21 +1,25 @@
 <html>
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="../css/login.css">
     <form action="sandiReset.html" id="lupaSandi" method="post">
-        <div class="gambarLogo">
-            <img src="login.png" alt="logoAgrishop" class="logoAgrishop">
-        </div>
+
+        <body class="bgImage"></body>
+
         <div class="container">
             <h1 class="judul">
                 Agrishop
             </h1>
-            <h1 class="judul">
+            <h2 class="judul">
                 Ganti Kata Sandi
-            </h1>
+            </h2>
         </div>
         <div class="container">
             <label for="email"><b>Email</b></label>
             <input type="text" id="email" placeholder="Masukkan Email" name="email" required >
+            <button type="submit" class="button">Ubah sandi</button>
         </div>
-        <button type="submit">Masuk</button>
+        <div class="container">
+            <p class="result"></p>
+        </div>
+
     </form>
 </html>
