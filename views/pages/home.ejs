@@ -5,14 +5,14 @@
 
     <%- include('../reusables/navbar.ejs') %>
     <div class="promosSlideshow">
-        <div class="slideshow">
-            <a href=""><img src="../picture/hehe.jpg" alt="Promosi 1" width="100%"></a>
+        <div class="slideshow fade">
+            <a href=""><img src="../picture/abstrak1.png" alt=""></a>
         </div>
-        <div class="slideshow">
-            <a href=""><img src="../picture/promo1.png" alt="Promosi 2" width="100%"></a>
+        <div class="slideshow fade">
+            <a href=""><img src="../picture/promo1.png" alt=""></a>
         </div>
-        <div class="slideshow">
-            <a href=""><img src="../picture/promo2.png" alt="Promosi 3  " width="100%"></a>
+        <div class="slideshow fade">
+            <a href=""><img src="../picture/promo2.png" alt=""></a>
         </div>
 
         <a class="prev" onclick="addslide(-1)">&#10094;</a>
@@ -32,27 +32,27 @@
         function addslide(n){
             showSlide(slideIndex += n);
         }
-        function currentSlide(n){
+        function slide(n){
             showSlide(slideIndex = n);
         }
+        
         function showSlide(n){
             let i;
             let slides = document.getElementsByClassName("slideshow");
             let dots = document.getElementsByClassName("dot");
-            if (n > slides.length){
-                slideIndex = 1
-            }
-            if (n<1){slideIndex = slides.length}
-            for (1=0; i<slides.length; i++){
+            if (n > slides.length){slideIndex = 1}
+            if (n < 1){slideIndex = slides.length}
+            for (i=0; i<slides.length; i++){
                 slides[i].style.display = "none";
             }
             for (i=0; i<dots.length; i++){
-                dots[i].className = dots[i].className.replace("active","");
+                dots[i].className = dots[i].className.replace(" active","");
             }
             slides[slideIndex-1].style.display = "block";
             dots[slideIndex-1].className += " active";
         }
     </script>
+
     <div class="katalog" id="rekomendasi">
         <h1>Rekomendasi</h1>
         <%- include('../reusables/contentBlockHome.ejs') %>
