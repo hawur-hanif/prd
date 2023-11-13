@@ -17,36 +17,40 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('userLogin',userSchema)
 
-router.get('/login',(req,res) => {
-    res.render('pages/login', {
-        pageTitle: "Login",
-        path: "login"
-    });
+router.get('/login', (req,res) => {
+    if (!req.session.isLoggedIn)
+        res.render('pages/login', {
+            pageTitle: "Login",
+            path: "login",
+            errorMsg: "none"
+    })
+    else{
+        res.redirect('/home')
+    }
+    ;
 });
 
-router.post('/login', 
-    body('email').isEmail(), 
-    body('password').custom(async value=>{
-
-    }),
-    async (req,res)=>{
-        const valResult = validationResult(req)
-        if (valResult.isEmpty()){
-            res.redirect('/home');
+router.post('/login', async (req,res)=>{
+    await User.findOne({email:req.body.email}).then(user =>{
+        if(req.body.password == user.password){
+            req.session.isLoggedIn = true
+            req.session.user = user
+            res.redirect('/home')
+        }else{
+            res.render('pages/login', {
+                pageTitle: "Login",
+                path: "login",
+                errorMsg: "Password salah"
+            });    
         }
-        else{
-            // res.render('pages/login', {
-            //     pageTitle: "Login",
-            //     path: "login",
-            //     errorMsg: "Email tidak terhubung dengan akun"
-            // });
-            // console.log(valResult)
-
-
-        
-    }
-    const user = await User.findOne({email:"bruh"})
-    console.log(user.email,user.password)
+    })
+    .catch(()=>{
+        res.render('pages/login', {
+            pageTitle: "Login",
+            path: "login",
+            errorMsg: "Email tidak terhubung dengan akun"
+        });       
+    })
 })
 
 module.exports = router
