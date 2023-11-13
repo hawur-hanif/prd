@@ -6,51 +6,101 @@ html, body{
     overflow-x: hidden;
 }
 .topSection{
+    background-color: rgb(193, 202, 193);
+    border: 0;
     margin: 0;
-    padding: 3px;
-    display: inline;
-    place-items: top;
-    width: max-content;
+    padding: 7px;
+    display: flex;
     text-decoration: none;
-    font-size: larger;
+    font-size: 30px;
     width: 100%;
+    height: 50px;
 }
 .search{
-    max-width: 75%;
+    width: 100%;
     display: inline;
 }
+.search #searchBar{
+    height: 30px;
+    margin-right: 0;
+    width: 80%;
+    padding-top: 0;
+}
+.topSection #homeW{
+    display: inline-block;
+    width: 15%;
+    justify-content: center;
+    justify-items: center;
+}
+.topSection #homeAgrishop{
+    display: inline-block;
+    margin: 0;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+}
+form.search button{
+    border: none;
+    background-color: rgb(60, 103, 15);
+    height: 30px;
+    margin-left: 0;
+    padding: 7px;
+    cursor: pointer;
+}
+form.search button:hover{
+    background-color: rgb(95, 179, 10);
+}
+.iconTop{
+    width: 10%;
+    padding-top:5px ;
+    display: inline-block;
+    margin-top: 0;
+}
 .navtop{
-    background-color: aliceblue;
+    background-color: rgb(193, 202, 193);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 5px;
     margin-left: 50%;
     transform: translate(-50%,0);
     position: relative;
     font-size: 20px;
     width: 100%;
 }
-.navtop .navtopBlock{
-    
-    border: 3px black solid;   
-    margin-top: 5px;
+.navtopBlock{
     text-decoration: none;
-    padding: 5px;
-    
+    color: black;
 }
+.navtop button{
+    text-decoration: none;
+    font-size: large;
+    border: none;
+    background-color: rgb(193, 202, 193);
+    padding-bottom: 5px;
+}
+.navtop button:hover{
+    background-color: rgb(179, 193, 179);
+}
+.navtop button.active{
+    background-color: white;
+}
+
 .promosiSlideshow{
-    width: 100%;
+    width: 80%;
     position: relative;
     margin: auto;
+    max-height: 300px;
 }
 .slideshow{
     display: none;
+    height: 300px;
+    overflow: hidden;
+    object-fit: cover;
 }
 .prev,.next{
     cursor: pointer;
     position: absolute;
-    top: 50%;
+    top: 35%;
     width: auto;
     margin-top: -22px;
     padding: 16px;
@@ -86,8 +136,8 @@ html, body{
     animation-duration: 1.5s;
 }
 @keyframes fade{
-    from{opacity: 0.5;}
-    to{opacity: 1;}
+    from{opacity: 0.5}
+    to{opacity: 1}
 }
 .blockDisplay{
     zoom: 1;
@@ -134,9 +184,4 @@ ul{
 ::-webkit-scrollbar-track{
     width: 7px;
     color: bisque;
-}
-.deskripsiProduk{
-    padding: auto;
-    margin: 1px;
-    justify-self: start;
 }
