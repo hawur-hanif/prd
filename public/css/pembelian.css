@@ -1,0 +1,186 @@
+html, body{
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.in{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.topSection{
+    background-color: rgb(193, 202, 193);
+    border: 0;
+    margin: 0;
+    padding: 7px;
+    display: flex;
+    text-decoration: none;
+    font-size: 30px;
+    width: 100%;
+    height: 50px;
+}
+.search{
+    width: 100%;
+    display: inline;
+}
+.search #searchBar{
+    height: 30px;
+    margin-right: 0;
+    width: 80%;
+    padding-top: 0;
+}
+.topSection #homeW{
+    display: inline-block;
+    width: 15%;
+    justify-content: center;
+    justify-items: center;
+}
+.topSection #homeAgrishop{
+    display: inline-block;
+    margin: 0;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+}
+form.search button{
+    border: none;
+    background-color: rgb(60, 103, 15);
+    height: 30px;
+    margin-left: 0;
+    padding: 7px;
+    cursor: pointer;
+}
+form.search button:hover{
+    background-color: rgb(95, 179, 10);
+}
+.iconTop{
+    width: 10%;
+    padding-top:5px ;
+    display: inline-block;
+    margin-top: 0;
+}
+.navtop{
+    background-color: rgb(193, 202, 193);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 50%;
+    transform: translate(-50%,0);
+    position: relative;
+    font-size: 20px;
+    width: 100%;
+}
+.navtopBlock{
+    text-decoration: none;
+    color: black;
+}
+.navtop button{
+    text-decoration: none;
+    font-size: large;
+    border: none;
+    background-color: rgb(193, 202, 193);
+    padding-bottom: 5px;
+}
+.navtop button:hover{
+    background-color: rgb(179, 193, 179);
+}
+.navtop button.active{
+    background-color: white;
+}
+.productDescribe{
+    display: inline;
+    height: 400px;
+    width: 100%;
+}
+.productImg{
+    display: inline;
+    height: 400px;
+    max-width: 40%;
+}
+.productImg img{
+    max-width: 40%;
+    max-height: 400px;
+    height: auto;
+}
+.describe{
+    width: 75%;
+    height: 400px;
+    height: auto;
+    float: right;
+}
+.addToCart input, .addToCart p{
+    display: inline;
+}
+.addToCart p{
+    font-size: 20px;
+}
+.addToCart button{
+    height: 35px;
+    background-color: rgb(81, 168, 81);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-left: 15px;
+}
+.addToCart button:hover #chat:hover{
+    background-color: rgb(52, 112, 52);
+}
+.chat h3{
+    margin-top: 75px;
+    margin-bottom: 0;
+}
+#chat{
+    color: white;
+    background-color: rgb(81, 168, 81);
+    border-radius: 5px;
+    height: 30px;
+    border: none;
+    width: auto;
+}
+#chat a{
+    text-decoration: none;
+    color: white;
+    height: 15px;
+}
+.comment{
+    border-top: rgb(214, 206, 206) solid 2px;
+}
+.imgProfile{
+    display: inline-block;
+    margin-top: 7px;
+}
+.imgProfile img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+.nameRate{
+    display: inline-block;
+}
+.nameRate h2, .nameRate #date{
+    display: inline;
+}
+#date{
+    font-size: smaller;
+}
+.nameRate #star{
+    display: block;
+}
+.nameRate h2{
+    margin-bottom: 5px;
+}
+#comment{
+    margin-top: 0;
+    display: block;
+    height: max-content;
+}
+.reviewComment{
+    margin-left: 5px;
+    overflow-y: scroll;
+    height: 225px;
+}
+::-webkit-scrollbar{
+    width: 7px;
+    color: black;
+}
