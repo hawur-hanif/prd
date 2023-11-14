@@ -24,8 +24,10 @@ app.set('views','views')
 //routes
 const loginRoutes = require('./routes/login')
 const signinRoutes = require('./routes/signin')
+const homeRoutes = require('./routes/home')
 app.use(loginRoutes)
 app.use(signinRoutes)
+app.use(homeRoutes)
 
 app.get('/', (req,res)=>{
     if (req.session.userId){
@@ -34,10 +36,6 @@ app.get('/', (req,res)=>{
         res.redirect('/login')
     }
 })
-
-app.get('/home',(req,res) => {
-    res.render('pages/home');
-});
 
 app.get('/cart',(req,res) => {
     res.render('pages/cart');
