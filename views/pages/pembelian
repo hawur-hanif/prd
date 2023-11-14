@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="../css/pembelian.css">
+    <%- include('../reusables/navbar') %>
+
+    <body>
+    <div class="in">
+    <div class="productDescribe">
+        <div class="productImg">
+            <img src="../picture/abstrak1.png" alt="Gambar Produk">
+        </div>
+        <div class="describe">
+            <div class="insDesc" id="product">
+                <h1>si halus dari goa hantu(judul produk)</h1>
+            </div>
+            <div class="insDesc" id="description">
+                <p>si halus ini suka mengeong (berisi deskripsi produk dan jenis produk contoh: beras rojolele, mentik dll)</p>
+            </div>
+            <div class="insDesc" id="stars">
+                <p><i class="fa-solid fa-star" style="display: inline-block; color: rgb(230, 181, 59);"></i> 5.0(review) dari (total) review</p>
+            </div>
+            <div class="insDesc" id="price">
+                <h2>Rp 1.000.000.000/Kg </h2>
+            </div>
+            <div class="insDesc" id="remain">
+                <p>tesrsisa 67 Kg</p>
+            </div>
+            <div class="addToCart">
+                <form action="kirim ke database" method="post">
+                    <input type="text" id="weight" placeholder="Kg" required style="width: 30px; height: 30px; text-align: center;">
+                    <p>Kg</p>
+                    <button id="cart" type="submit">Masukkan ke Keranjang</button>
+                </form>
+            </div>
+            <div class="chat">
+                <h3>Punya pertanyaan?</h3>
+                <button id="chat"><a href="chatPenjual" >chat penjual</a></button>
+            </div>
+        </div>
+    </div>
+
+    <h1 style="margin-bottom: 5px;">Komentar Pembeli</h1>
+    <div class="reviewComment">
+        <div id="person1" class="comment">
+            <div class="imgProfile">
+                <img src="../picture/abstrak1.png" alt="">
+            </div>
+            <div class="nameRate">
+            <h2 id="name">nama contoh: tuan kil</h2>
+            <p id="date">18 Desember 2357</p>
+            <p id="star"><i class="fa-solid fa-star" style="display: inline-block; color: rgb(230, 181, 59);"></i>
+                <i class="fa-solid fa-star" style="display: inline-block; color: rgb(230, 181, 59);"></i>
+                <i class="fa-solid fa-star" style="display: inline-block; color: rgb(230, 181, 59);"></i>
+                <i class="fa-solid fa-star" style="display: inline-block; color: rgb(230, 181, 59);"></i>
+                <i class="fa-solid fa-star" style="display: inline-block; color: rgb(230, 181, 59);"></i>
+            </p>
+            </div>
+            <p id="comment">mantap bang</p>
+        </div>
+        <div id="person1" class="comment">
+            <div class="imgProfile">
+                <img src="../picture/abstrak1.png" alt="">
+            </div>
+            <div class="nameRate">
+            <h2 id="name">nama contoh: nona dek</h2>
+            <p id="date">18 februari 545</p>
+            <p id="star"><i class="fa-solid fa-star" style="display: inline-block; color: rgb(230, 181, 59);"></i>
+                <i class="fa-solid fa-star" style="display: inline-block; color: black"></i>
+                <i class="fa-solid fa-star" style="display: inline-block; color: black"></i>
+                <i class="fa-solid fa-star" style="display: inline-block; color: black;"></i>
+                <i class="fa-solid fa-star" style="display: inline-block; color: black;"></i>
+            </p>
+            </div>
+            <p id="comment">kucingnya kurang gede gan, kalo bisa ukurannya 100 kilo kali 1000 kilo kali 10000 kilo, tapi yaudahlahya</p>
+        </div>
+
+        <div id="person2" class="comment">
+            <div class="imgProfile">
+                <img src="../picture/abstrak1.png" alt="">
+            </div>
+            <div class="nameRate">
+            <h2 id="name">nama contoh: tuan kil</h2>
+            <p id="date">18 Desember 2357</p>
+            <p id="star"><i class="fa-solid fa-star" style="display: inline-block; color: rgb(230, 181, 59);"></i>
+                <i class="fa-solid fa-star" style="display: inline-block; color: rgb(230, 181, 59);"></i>
+                <i class="fa-solid fa-star" style="display: inline-block; color: rgb(230, 181, 59);"></i>
+                <i class="fa-solid fa-star" style="display: inline-block; color: rgb(230, 181, 59);"></i>
+                <i class="fa-solid fa-star" style="display: inline-block; color: black"></i>
+            </p>
+            </div>
+            <p id="comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores illo ratione similique quia ipsum nobis iure veniam inventore unde qui totam, modi ullam eaque labore ab quidem ut esse provident.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis id aliquid deserunt quam error dignissimos molestias porro eius, similique corporis repellat illo provident eum fuga iste voluptatum expedita, doloribus sit.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, asperiores perspiciatis quibusdam officia reprehenderit possimus soluta culpa ad excepturi corporis eos vel labore? Repudiandae, consequatur dicta. Voluptatum quod earum aspernatur?
+            </p>
+        </div>
+
+        <div id="person3" class="comment">
+            <div class="imgProfile">
+                <img src="../picture/abstrak1.png" alt="">
+            </div>
+            <div class="nameRate">
+            <h2 id="name">nama contoh: tuan kil</h2>
+            <p id="date">18 Desember 2357</p>
+            <p id="star"><i class="fa-solid fa-star" style="display: inline-block; color: rgb(230, 181, 59);"></i>
+                <i class="fa-solid fa-star" style="display: inline-block; color: rgb(230, 181, 59);"></i>
+                <i class="fa-solid fa-star" style="display: inline-block; color: rgb(230, 181, 59);"></i>
+                <i class="fa-solid fa-star" style="display: inline-block; color: rgb(230, 181, 59);"></i>
+                <i class="fa-solid fa-star" style="display: inline-block; color: rgb(230, 181, 59);"></i>
+            </p>
+            </div>
+            <p id="comment">mantap bang</p>
+        </div>
+
+        <div id="person4" class="comment">
+            <div class="imgProfile">
+                <img src="../picture/abstrak1.png" alt="">
+            </div>
+            <div class="nameRate">
+            <h2 id="name">nama contoh: tuan kil</h2>
+            <p id="date">18 Desember 2357</p>
+            <p id="star"><i class="fa-solid fa-star" style="display: inline-block; color: rgb(230, 181, 59);"></i>
+                <i class="fa-solid fa-star" style="display: inline-block; color: rgb(230, 181, 59);"></i>
+                <i class="fa-solid fa-star" style="display: inline-block; color: rgb(230, 181, 59);"></i>
+                <i class="fa-solid fa-star" style="display: inline-block; color: rgb(230, 181, 59);"></i>
+                <i class="fa-solid fa-star" style="display: inline-block; color: rgb(230, 181, 59);"></i>
+            </p>
+            </div>
+            <p id="comment">mantap bang</p>
+        </div>
+    </div>
+    
+    </div>
+    </body>
+</html>
