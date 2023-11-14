@@ -145,7 +145,7 @@ form.search button:hover{
     box-shadow: inset;
     margin: 7px;    
     max-width: 200px;
-    max-height: 250px;
+    max-height: 270px;
     border-radius: 10px;
     overflow: hidden;
 }
@@ -181,12 +181,21 @@ ul{
 .leftSect{
     display: inline-block;
     width: 50%;
+    height: 40px;
 }
 .rightSect{
     display: inline-block;
     position: relative;
     width: 47%;
     margin-right: 15px;
+}
+.harga{
+    margin: 0;
+    display: block;
+}
+.harga p{
+    margin: 0;
+    padding-left: 3px;
 }
 .desc{
     display: block;
