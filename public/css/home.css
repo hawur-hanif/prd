@@ -85,17 +85,14 @@ form.search button:hover{
     background-color: white;
 }
 
-.promosiSlideshow{
-    width: 80%;
-    position: relative;
-    margin: auto;
-    max-height: 300px;
-}
+
 .slideshow{
     display: none;
     height: 300px;
     overflow: hidden;
-    object-fit: cover;
+    width: 70%;
+    margin-left: 15%;
+    aspect-ratio: 16/9;
 }
 .prev,.next{
     cursor: pointer;
@@ -110,6 +107,8 @@ form.search button:hover{
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
     user-select: none;
+    margin-left: 15%;
+    margin-right: 15%;
 }
 .next{
     right: 0;
@@ -142,17 +141,19 @@ form.search button:hover{
 .blockDisplay{
     zoom: 1;
     display: inline-block;
-    border-radius: 3px;
-    border: solid darkgray;
+    border: solid darkgray 3px;
     box-shadow: inset;
     margin: 7px;    
     max-width: 200px;
-    max-height: 200px;
+    max-height: 270px;
+    border-radius: 10px;
+    overflow: hidden;
 }
 .imgDisplay{
     height: auto;
-    max-width: 100%;
-
+    max-width: 200px;
+    max-height: 200px;
+    overflow: hidden;
 }
 img{
     height: auto;
@@ -176,6 +177,38 @@ ul{
     padding: auto;
     margin: 1px;
     justify-self: start;
+}
+.leftSect{
+    display: inline-block;
+    width: 50%;
+    height: 40px;
+}
+.rightSect{
+    display: inline-block;
+    position: relative;
+    width: 47%;
+    margin-right: 15px;
+}
+.harga{
+    margin: 0;
+    display: block;
+}
+.harga p{
+    margin: 0;
+    padding-left: 3px;
+}
+.desc{
+    display: block;
+    margin: 3px;
+}
+.rightSect .desc{
+    text-align: right;
+}
+.katalog h1{
+    background-color: rgb(193, 202, 193);
+    border-radius: 5px;
+    padding: 5px;
+    max-width: max-content;
 }
 ::-webkit-scrollbar{
     width: 7px;
