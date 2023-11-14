@@ -11,22 +11,24 @@ router.get('/signin',(req,res)=>{
 })
 
 router.post('/signin', async (req,res)=>{
-    await User.findOne({email:req.body.email}).then(()=>{
-        res.render('pages/signin', {
-            pageTitle: "Sign In",
-            path: "login",
-            errorMsg: "Email has already been used for another account"
-        })
-    }).catch(()=>{
-        const user = new User({
-            email: req.body.email,
-            username: req.body.username,
-            password: req.body.password
-        })
-        user.save()
-        req.session.isLoggedIn = true
-        req.session.user = req.body.email
-        res.redirect('/home')
+    await User.findOne({email:req.body.email}).then( async (r)=>{
+        if(r==null){
+            const user = new User({
+                email: req.body.email,
+                username: req.body.username,
+                password: req.body.password
+            })
+            await user.save()
+            req.session.isLoggedIn = true
+            req.session.user = req.body.email
+            res.redirect('/home')
+        }else{
+            res.render('pages/signin', {
+                pageTitle: "Sign In",
+                path: "login",
+                errorMsg: "Email has already been used for another account"
+            })
+        }        
     })
 })
 
