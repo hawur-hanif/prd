@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
-    <link rel="stylesheet" href="/css/login.css">
+    <%- include('../reusables/head.ejs') %>
+    </head>
     <body class="bgImage">
         
     </body>
-    <form id="loginForm" class="loginForm" onsubmit="return checker" id="loginForm">
+    <form id="loginForm" class="loginForm" onsubmit="return checker" id="loginForm" action="">
 
         <div class="container">
             <h1 class="judul">
@@ -19,7 +20,7 @@
         </div>
         <div class="container">
             <label for="email"><b>Email</b></label>
-            <input type="text" id="email" placeholder="Masukkan Email" name="email" required >
+            <input type="email" id="email" placeholder="Masukkan Email" name="email" required >
             
             <label for="username"><b>Nama Lengkap</b></label>
             <input type="text" id="username" placeholder="Masukkan Nama Lengkap" name="username" required>
@@ -59,9 +60,14 @@
             <input type="checkbox" checked="checked" name="remember" id="remember">
             </div>
 
-            <button type="submit" class="button" onclick="checker()">Daftar</button>
+            <% if (errorMsg!="none") { %>
+                <p> <%= errorMsg %></p> 
+            <% } %>
 
-            <script type="/js/signin.js"></script>
+            <button type="submit" class="button">Daftar</button>
+
+            <script src="/js/signin.js"></script>
+            
 
             </div>
             <div class="container">

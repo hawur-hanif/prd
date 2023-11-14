@@ -23,7 +23,9 @@ app.set('views','views')
 
 //routes
 const loginRoutes = require('./routes/login')
+const signinRoutes = require('./routes/signin')
 app.use(loginRoutes)
+app.use(signinRoutes)
 
 app.get('/', (req,res)=>{
     if (req.session.userId){
@@ -32,10 +34,6 @@ app.get('/', (req,res)=>{
         res.redirect('/login')
     }
 })
-
-app.get('/signin',(req,res) => {
-    res.render('pages/signin');
-});
 
 app.get('/home',(req,res) => {
     res.render('pages/home');
@@ -51,7 +49,7 @@ mongoose
   .connect(process.env.DB_URL)
   .then((result) => {
     app.listen(process.env.PORT || 3000);
-    console.log('Connected to database')
+    console.log(`Connected to ${result.connection.db.databaseName} database`)
   })
   .catch((err) => {
     console.log(err);

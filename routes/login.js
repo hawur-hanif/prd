@@ -1,21 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const mongoose = require('mongoose')
-const { body, validationResult} = require('express-validator')
-
-const userSchema = new mongoose.Schema({
-    email: {
-        type: String,
-        required: true,
-        unique: true
-    },
-    password: {
-        type: String,
-        required: true,
-    }
-})
-
-const User = mongoose.model('userLogin',userSchema)
+const User = require('../models/user')
 
 router.get('/login', (req,res) => {
     if (!req.session.isLoggedIn)
@@ -34,7 +19,7 @@ router.post('/login', async (req,res)=>{
     await User.findOne({email:req.body.email}).then(user =>{
         if(req.body.password == user.password){
             req.session.isLoggedIn = true
-            req.session.user = user
+            req.session.user = user.email
             res.redirect('/home')
         }else{
             res.render('pages/login', {
