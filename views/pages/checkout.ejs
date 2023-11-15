@@ -4,9 +4,29 @@
 <!DOCTYPE html>
 <html>
     <%- include('../reusables/navbar') %>
-    <link rel="stylesheet" href="../css/checkout.css"
+    <link rel="stylesheet" href="../css/checkout.css">
     <div class="left">
-        <p>
-            eyyo
-        </p>
+        <div class="infos">
+            <h2>Informasi Kontak</h2>
+            <fieldset>
+                <label for="first-name">Nama depan: 
+                    <input name="first-name" type="text" required /></label>
+                <label for="last-name">Nama belakang: 
+                    <input name="last-name" type="text" required /></label>
+                <label for="email">Email: 
+                    <input name="email" type="email" required /></label>
+            </fieldset>
+        </div>
+
+        <div class="infos">
+            <h2>Alamat Pengiriman</h2>
+            <fieldset>
+                <label for="first-name">Alamat: 
+                    <input name="first-name" type="text" required /></label>
+                <label for="last-name">Kota/Kabupaten:
+                    <input name="last-name" type="text" required /></label>
+                <label for="email">Provinsi: 
+                    <input name="email" type="email" required /></label>
+            </fieldset>
+        </div>
     </div>
