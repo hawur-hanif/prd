@@ -1,0 +1,7 @@
+.left{
+    width: 150px;
+    border: 200px solid black;
+    background-color: brown;
+    padding: 50px;
+    margin: 20px auto;
+}

@@ -41,6 +41,10 @@ app.get('/cart',(req,res) => {
     res.render('pages/cart');
 });
 
+app.get('/checkout',(req,res) => {
+  res.render('pages/checkout');
+});
+
 app.get('/desession', (req,res)=>{
     req.session.destroy()
     res.redirect('/login')
