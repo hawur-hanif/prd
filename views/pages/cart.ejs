@@ -1,6 +1,81 @@
 <!DOCTYPE html>
 <html>
-    <link rel="stylesheet" href="../css/home.css">
-    <script src="https://kit.fontawesome.com/d55d71e4f6.js" crossorigin="anonymous"></script>
-    <%- include('../reusables/navbar.ejs') %>
+    <%- include('../reusables/navbar') %>
+    <link rel="stylesheet" href="../css/cart.css">
+    <div class="in">
+        <div class="title">
+            <h1>Keranjang</h1>
+        </div>
+            <div>
+                <div class="checkoutTitle">
+                    <div class="checkoutTitleLine" id="product">
+                        <h2>Produk</h2>
+                    </div>
+                    <div class="checkoutTitleLine" id="quantity">
+                        <h2>Kuantitas</h2>
+                    </div>
+                    <div class="checkoutTitleLine" id="price">
+                        <h2>Harga</h2>
+                    </div>
+                    <div class="checkoutTitleLine" id="subtotal">
+                        <h2>Subtotal</h2>
+                    </div>
+                </div>
+            <ul class="chekoutLine">
+                <% for( let index = 0; index < 7; index++ ) { %>
+                <li class="checkout">
+                    <div class="checkoutContainer" id="product">
+                        <div id="checkoutImg">
+                            <img src="../picture/abstrak1.png" alt="Gambar produk">
+                        </div>
+                        <div id="checkoutProduct">
+                            <div id="productName">
+                            <h3>Si halus dari goa hantu(nama produk)</h3>
+                            </div>
+                            <div id="remain">
+                            <p>tersedia :</p><p>17.7</p><p>Kg</p>
+                            </div>
+                            <div id="remove">
+                            <input type="button" id="removeItem" >
+                            <label for="removeItem"><i class="fa-solid fa-trash"></i> hapus</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="checkoutContainer" id="quantity">
+                        <input type="text" name="kuantitas" id="item">Kg
+                    </div>
+                    <div class="checkoutContainer" id="price">
+                        <p>Rp 1.000.000.000/Kg</p>
+                    </div>
+                    <div class="checkoutContainer" id="subtotal">
+                        <p>harga*kuantitas</p>
+                    </div>
+                </li>
+                <% } %>
+            </ul>
+        </div>
+        <div class="coupon">
+            <h3>Apakah Anda mempunyai kupon?</h3>
+            <p>Masukkan kupon untuk mendapat diskon</p>
+            <form action="cek database" id="applyCoupon">
+                <input type="text"placeholder="Masukkan kupon (opsional)">
+                <button type="submit">Gunakan</button>
+            </form>
+        </div>
+        <div class="checkoutF">
+            <table>
+                <tr>
+                    <td style="width: 150px;">Subtotal</td>
+                    <td>Rp 68676767</td>
+                </tr>
+                <tr>
+                    <td style="border-top: 0.5px solid black;">Total</td>
+                    <td style="border-top: 0.5px solid black;">subtotal-kupon</td>
+                </tr>
+            </table>
+            <div class="buy">
+                <button type="submit">Bayar</button>
+            </div>
+        </div>
+    </div>
 </html>
