@@ -1,0 +1,167 @@
+.in{
+    margin-left: 5%;
+    margin-right: 5%;
+    
+}
+.title{
+    display: block;
+    width: 100%;
+}
+.title h1{
+    text-align: center;
+}
+.chekoutLine{
+    list-style-type: none;
+    padding: 0;
+    max-height: 350px;
+    overflow-y: scroll;
+}
+.chekoutTitle{
+    border-bottom: rgb(214, 206, 206) solid 2px;
+
+}
+.chekoutTitleLine h2{
+    width: max-content;
+}
+.checkout{
+    width: 100%;
+    height: 100px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-top:solid black 0.5px ;
+}
+#product{
+    display: inline-block;
+    width: 45%;
+}
+#quantity{
+    text-align: center;
+    display: inline-block;
+    width: 10%;
+}
+#price{
+    text-align: center;
+    display: inline-block;
+    width: 20%;
+}
+#subtotal{
+    text-align: center;
+    display: inline-block;
+    width: 20%;
+}
+
+.checkoutContainer #product{
+    height: 100px;
+}
+.checkout #quantity{
+    height: 60px;
+    text-align: center;
+    padding-top:40px ;
+}
+.checkout #price{
+    height: 60px;
+    text-align: center;
+    padding-top:40px ;
+}
+.checkout #subtotal{
+    height: 60px;
+    text-align: center;
+    padding-top:40px ;
+}
+.checkout #subtotal p, .checkout #price p{
+    margin: 0;
+}
+.checkoutContainer{
+    display: inline-block;
+    vertical-align: top;
+}
+#checkoutImg img{
+    width: 100px;
+    height: 100px;
+}
+#checkoutImg{
+    display: inline-block;
+    max-width: 20%;
+}
+#checkoutProduct{
+    display: inline-block;
+    width: 80%;
+    vertical-align: top;
+}
+#productName h3{
+    margin-top: 5px;
+    margin-bottom: 7px;
+    margin-left: 10px;
+}
+#remain{
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+#checkoutProduct #remove #removeItem{
+    color: white;
+    border: none;
+    background-color: white;
+    width: 1px;
+}
+#productName, #remain, #remove{
+    width: max-content;
+    height: max-content;
+}
+#remain p{
+    display: inline-block;
+    margin: 3px;
+}
+#item{
+    width: 30px;
+}
+.coupon{
+    display: inline-block;
+    width: 70%;
+}
+.coupon h3{
+    margin: 0;
+}
+.coupon button{
+    background-color:rgb(60, 103, 15) ;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    height: 27px;
+}
+.coupon input{
+    height: 25px;
+}
+.coupon button:hover{
+    background-color:rgb(114, 180, 43) ;
+}
+.checkoutF{
+    display: inline-block;
+}
+.checkoutF .checkoutL{
+    display: inline-flexbox;
+    max-width: max-content;
+}
+.checkoutf .checkoutR{
+    display: inline-flexbox;
+}
+.buy{
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.buy button{
+align-content: center;
+   width: 100%;
+   height: 30px;
+   background-color:rgb(60, 103, 15) ;
+   color: white;
+   border-radius: 5px;
+   border: none;
+}
+.buy button:hover{
+    background-color:rgb(114, 180, 43) ;
+}
+::-webkit-scrollbar{
+    width: 7px;
+    color: black;
+}
