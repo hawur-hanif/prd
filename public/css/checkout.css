@@ -1,3 +1,7 @@
+html{
+    font-family:  sans-serif;
+}
+
 .main{
     display: flex;
     flex-direction: row;
@@ -39,7 +43,7 @@ p {
 }
 
 .bold{
-    font-weight: 500;
+    font-weight: bold;
 }
 
 fieldset {
@@ -51,4 +55,40 @@ fieldset {
 label, input{
     display: block;
     margin-bottom: 10px;
+}
+
+.inline{
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6px;
+}
+
+div.inline{
+    justify-content: left;
+}
+
+div.inline * {
+    margin-right: 6px;
+    text-align: center;
+    max-height: 23px;
+}
+
+
+.inline2 {
+    display: flex;
+    margin-top: 10px;
+    border-bottom: 2px solid lightsteelblue;
+}
+
+.sum{
+    max-width: 30px;
+}
+
+p.ket{
+    font-size: small;
+}
+
+.cat{
+    width: 100%;
 }
