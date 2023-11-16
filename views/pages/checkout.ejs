@@ -5,28 +5,52 @@
 <html>
     <%- include('../reusables/navbar') %>
     <link rel="stylesheet" href="../css/checkout.css">
-    <div class="left">
-        <div class="infos">
-            <h2>Informasi Kontak</h2>
-            <fieldset>
-                <label for="first-name">Nama depan: 
-                    <input name="first-name" type="text" required /></label>
-                <label for="last-name">Nama belakang: 
-                    <input name="last-name" type="text" required /></label>
-                <label for="email">Email: 
-                    <input name="email" type="email" required /></label>
-            </fieldset>
-        </div>
+    <body>
+        <div class="main">
+        <div class="left">
+            <div class="infos">
+                <h2>Informasi Kontak</h2>
+                <fieldset>
+                    <label for="first-name">Nama depan: 
+                        <input name="first-name" type="text" required /></label>
+                    <label for="last-name">Nama belakang: 
+                        <input name="last-name" type="text" required /></label>
+                    <label for="email">Email: 
+                        <input name="email" type="email" required /></label>
+                </fieldset>
+            </div>
 
-        <div class="infos">
-            <h2>Alamat Pengiriman</h2>
-            <fieldset>
-                <label for="first-name">Alamat: 
-                    <input name="first-name" type="text" required /></label>
-                <label for="last-name">Kota/Kabupaten:
-                    <input name="last-name" type="text" required /></label>
-                <label for="email">Provinsi: 
-                    <input name="email" type="email" required /></label>
-            </fieldset>
+            <div class="infos">
+                <h2>Alamat Pengiriman</h2>
+                <fieldset>
+                    <label>Alamat: 
+                        <input type="text" required /></label>
+                    <label >Kota/Kabupaten:
+                        <input type="text" required /></label>
+                    <label >Provinsi: 
+                        <input type="email" required /></label>
+                </fieldset>
+            </div>
+
+            <div class="infos">
+                <h2>Layanan Pengiriman</h2>
+                <fieldset>
+                    <label class="metode">Metode Pembayaran
+                        <select class="metode">
+                        <option value="">(pilih satu)</option>
+                        <option value="1">COD (Cash On Delivery) </option>
+                        <option value="2">Transfer bank</option>
+                        </select>
+                    </label>
+                    <label >Nomor rekening:
+                        <input type="text" required /></label>
+                </fieldset>
+            </div>
+
         </div>
+        <div class="right">
+            <h2>Order</h2>
+            <p><span><span class="bold">Total Fat</span class="bold"> 8g</span> <span class="bold">10%</span></p>
+        </div>
+    </body>
     </div>
