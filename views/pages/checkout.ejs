@@ -1,5 +1,6 @@
 <!--
     ini nom mau ngerjain yaw
+    sorry if it's super ineffiecient and a sore to yalls eyes lmao
 -->
 <!DOCTYPE html>
 <html>
@@ -33,10 +34,10 @@
             </div>
 
             <div class="infos">
-                <h2>Layanan Pengiriman</h2>
+                <h2>Pembayaran</h2>
                 <fieldset>
                     <label class="metode">Metode Pembayaran
-                        <select class="metode">
+                        <select class="metode" required>
                         <option value="">(pilih satu)</option>
                         <option value="1">COD (Cash On Delivery) </option>
                         <option value="2">Transfer bank</option>
@@ -54,7 +55,7 @@
                 <a href=""><img height="100px" width="120px" src="../picture/bayam.jpeg" alt=""></a>
                 <div class="cat">
                     <p><span class="bold" >Bayam</span> <span class="bold">Rp2.000,00</span></p>
-                    <span class="inline"><p class="ket">Bayam hijau organik</p><button value="del">del</button></span>
+                    <span class="inline"><p class="ket">Bayam hijau organik</p><button value="del">hapus</button></span>
                     <div class="inline">
                         <button>-</button>
                         <input type="text" class="sum" value="1">
@@ -66,13 +67,19 @@
                 <a href=""><img height="100px" width="120px" src="../picture/bayam.jpeg" alt=""></a>
                 <div class="cat">
                     <p><span class="bold">Bayam</span> <span class="bold">Rp2.000,00</span></p>
-                    <span class="inline"><p class="ket">Bayam hijau organik</p><button value="del">del</button></span>
+                    <span class="inline"><p class="ket">Bayam hijau organik</p><button value="del">hapus</button></span>
                     <div class="inline">
                         <button>-</button>
                         <input type="text" class="sum" value="1">
                         <button>+</button>
                     </div>
                 </div>
+            </div>
+            <div class="total">
+                <p><span>Subtotal</span><span>Rp4.000,00</span></p>
+                <p><span>Ongkir</span><span>Rp1.000,00</span></p>
+                <p><span class="bold">Total</span><span class="bold">Rp5.000,00</span></p>
+                <input type="submit" value="Order">
             </div>
         </div>
     </body>
