@@ -1,23 +1,27 @@
 <html>
     <script src="https://kit.fontawesome.com/d55d71e4f6.js" crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="../css/navbar.css">
     <div>
         <div class="topSection">
-            <a href="home" id="homeAgrishop" style="text-decoration: none;">Agrishop</a>
+            <div id="homeW">
+            <a href="home" id="homeAgrishop" style="text-decoration: none; color: black;">Agrishop</a>
+            </div>
             <form action="" class="search">
-                <input type="search" name="searchBar" id="searchBar" placeholder="Search">
-                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <input type="search" name="searchBar" id="searchBar" placeholder="Cari sesuatu...">
+                <button type="submit"><i class="fa fa-search" id="searchLogo"></i></button>
             </form>
-    
-            <a href="cart.html" style="text-decoration: none;"><i class="fa-solid fa-cart-shopping"></i></a>
-            <a href="profile.html" style="text-decoration: none;"><i class="fa-regular fa-user"></i></a>
-    
+
+            <div class="iconTop">
+            <a href="cart" style="text-decoration: none; color: black;"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="../pages/profile" style="text-decoration: none; color: black;"><i class="fa-regular fa-user"></i></a>
+            </div>
         </div>
+
         <div class="navtop">
-            <a href="home" class="navtopBlock">Beranda</a>
-            <a href="kategori" class="navtopBlock">Kategori</a>
-            <a href="riwayat" class="navtopBlock">Riwayat</a>
-            <a href="bantuan" class="navtopBlock">Bantuan</a>
+            <button type="menu"><a href="home" class="navtopBlock">Beranda</a></button>
+            <button type="menu"><a href="riwayat" class="navtopBlock">Kategori</a></button>
+            <button type="menu"><a href="tentang/bantuan" class="navtopBlock">Riwayat</a></button>
+            <button type="menu"><a href="jual/beli" class="navtopBlock">Bantuan</a></button>
         </div>
     </div>
 </html>
