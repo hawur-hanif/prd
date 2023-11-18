@@ -1,5 +1,56 @@
-#profileImg img{
-    width: 100px;
-    height: 100px;
+.in{
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    margin: 0 3% 0 3%;
+}
+.in #in{
+    height: 83%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items:self-start;
+}
+.chat img{
+    float: left;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
+    margin: 10px;
+}
+.chat img.right{
+    float: right;
+}
+.chat{
+    border: solid 0.5px black;
+    width: 700px;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 8px;
+}
+.sender{
+    margin-left: 43%;
+}
+.receiver{
+    background-color: rgb(242, 242, 238);
+}
+.chat::after{
+    content: "";
+    clear: both;
+    display: table;
+}
+.timeSend{
+    float: left;
+    color: rgb(153, 153, 156);
+}
+.timeReceive{
+    color: rgb(153, 153, 156);
+    float: right;
+}
+.send input{
+    display: inline-block;
+    bottom: 0;
+    width: 90%;
+    height: 17px;
+    padding: 3px;
 }
