@@ -6,6 +6,33 @@
         <meta name="viewport" content="width=device-width, initial-scale1.0">
         <link rel="stylesheet" href="../css/admin_dash.css">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Bulan', 'Wortel', 'Bawang'],
+          ['Agustus',  1000,      400],
+          ['September',  1170,      460],
+          ['Oktober',  660,       1120],
+          ['November',  1030,      540]
+        ]);
+
+        var options = {
+          title: 'Demand Produk Per Bulan',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
     </head>
 
     <body>
@@ -73,7 +100,29 @@
                 </li>
             </ul>
 
+            <div class="out">
+            <button>Keluar Dari Toko</button>
+            </div>
+
         </nav>
+
+        <div class="right">
+            <div class="inline">
+                <span><h1>Dashboard</h1></span>
+                <span>
+                    <li>
+                        <a href="#">
+                            <i class='sidebar__link-icon bx bxs-cube'></i>
+                        </a>
+                    </li>
+                </span>
+            </div>
+            
+            <div>
+                <span id="curve_chart" style="width: 900px; height: 500px"></span>
+            </div>
+
+        </div>
     </body>
 
 </html>
