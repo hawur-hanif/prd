@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <%- include('../reusables/navbar.ejs') %>
+    <link rel="stylesheet" href="../css/riwayat.css">
+    <div class="in">
+        <h1>Riwayat Pembelian</h1>
+        <div>
+            <ul class="historyLine">
+                <% for( let index = 0; index < 7; index++ ) { %>
+                <li class="history">
+                    <div class="historyContainer" id="product">
+                        <div id="historyImg">
+                            <img src="../picture/abstrak1.png" alt="Gambar produk">
+                        </div>
+                        <div id="historyProduct">
+                            <div id="productName">
+                            <h3>Si halus dari goa hantu(nama produk)</h3>
+                            </div>
+                            <div id="boughtDate">
+                            <p>dibeli :</p><p>16 jshdk 293u(tanggal)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="historyContainer" id="quantity">
+                        <p>23.34 Kg</p>
+                    </div>
+                    <div class="historyContainer" id="price">
+                        <p>Rp 1.000.000.000</p>
+                    </div>
+                    <div class="historyContainer" id="condition">
+                        <p>selesai/sedang diproses</p>
+                    </div>
+                </li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+
+</html>
