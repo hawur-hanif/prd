@@ -1,0 +1,24 @@
+#outer {
+    min-width: 2000px; 
+    min-height: 200px; 
+    background: #3e3e3e; 
+    position:relative
+  }
+  
+#inner {
+    left: 1%; 
+    top: 45px; 
+    width: 50%; 
+    height: auto; 
+    position: relative; 
+    z-index: 1;
+    background-color: red;
+}
+  
+#inner-inner {
+    background: green;
+    position: relative; 
+    height: 400px; 
+    right: 0px; 
+    left: 0px;
+}
