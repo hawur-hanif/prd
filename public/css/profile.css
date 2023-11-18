@@ -1,13 +1,94 @@
+.in{
+    margin: 1%;
+}
+.left{
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    margin: 3%;
+    width: 16%;
+}
+.right{
+    display: inline-block;
+    position: absolute;
+    margin: 2%;
+    width: 100%;
+    height: 100%;
+}
 .imgProfile{
     width: 200px;
     height: 200px;
     position: relative;
     overflow: hidden;
     border-radius: 50%;
+    z-index: 1;
 }
 img {
     display: inline;
     margin: 0 auto;
     height: 100%;
     width: 100%;
+}
+ul{
+    padding: 0;
+    list-style-type: none;
+}
+ul li{
+    font-size: 30px;
+    margin: 10px;
+}
+.background{
+    background-color: black;
+    color: white;
+}
+.profile h3{
+    font-size: 23px;
+    margin:0 3px 3px 0 ;
+}
+.profile p{
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 700px;
+    font-size: 20px;
+    height: max-content;
+    padding:0  3px 3px 5px;
+    margin-left: 3%;
+}
+.changePass h2, .changePass p{
+    margin: 0 5px 0 0;
+}
+.changePass input{
+    margin: 0 10px 10px 0;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 650px;
+    font-size: 20px;
+    height: 25px;
+    padding:0  3px 3px 5px;
+    margin-left: 3%;
+}
+.changePass button{
+    font-size: 18px;
+    background-color: rgb(81, 168, 81);
+    border-radius: 5px;
+    border: none;
+    color: white;
+    padding: 4px;
+}
+.changePass button:hover{
+    background-color: rgb(52, 112, 52);;
+}
+#tokoDesc{
+    z-index: 1;
+    position: absolute;
+}
+#penggunaDesc{
+    z-index: 2;
+    position: absolute;
+}
+.view{
+    visibility: visible;
+}
+.hidden{
+    visibility: hidden;
 }
