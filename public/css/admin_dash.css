@@ -58,6 +58,7 @@ p{
 .inline{
     display: flex;
     flex-direction: row;
+    margin: 60px 20px;
 }
 
 .right{

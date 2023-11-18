@@ -26,7 +26,7 @@
         ]);
 
         var options = {
-          title: 'Demand Produk Per Bulan',
+          title: 'Demand Produk Per Bulan di Jatinangor',
           curveType: 'function',
           legend: { position: 'bottom' }
         };
@@ -53,7 +53,7 @@
 
     var options = {
       chart: {
-        title: 'Company Performance',
+        title: 'Perbandingan Supply Demand Produk di Jatinangor',
         subtitle: 'Sales, Expenses, and Profit: 2014-2017',
       }
     };
@@ -63,6 +63,39 @@
     chart.draw(data, google.charts.Bar.convertOptions(options));
   }
 </script>
+
+<script type="text/javascript">
+    google.charts.load("current", {packages:["corechart"]});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ["Element", "Density", { role: "style" } ],
+        ["Bintang 5", 300, "#b87333"],
+        ["Bintang 4", 100, "silver"],
+        ["Bintang 3", 25, "gold"],
+        ["Bintang 2", 6, "color: #e5e4e2"],
+        ["Bintang 1", 1, "color: #e5e4e2"]
+      ]);
+
+      var view = new google.visualization.DataView(data);
+      view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
+
+      var options = {
+        title: "Review Toko",
+        width: 500,
+        height: 250,
+        bar: {groupWidth: "95%"},
+        legend: { position: "none" },
+      };
+      var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
+      chart.draw(view, options);
+  }
+  </script>
 
     </head>
 
@@ -151,6 +184,10 @@
             
             <div class="inline">
                 <span class="graph" id="curve_chart" style="width: 450px; height: 250px;"></span>
+                <span id="barchart_values" style="width: 450px; height: 50px;"></span>
+            </div>
+
+            <div class="inline">
                 <span class="graph" id="columnchart_material" style="width: 400px; height: 250px;"></span>
             </div>
 
