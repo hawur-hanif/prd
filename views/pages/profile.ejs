@@ -2,47 +2,122 @@
 <html>
     <link rel="stylesheet" href="../css/profile.css">
     <%- include('../reusables/navbar') %>
-    <div class="imgProfile">
-        <img src="../picture/abstrak1.png" alt="profile picture" class="pictSquare">
-    </div>
-    <div class="underImg">
-        <div>
-            
-        </div>
-    </div>
-    <div class="profile">
-        <div id="firstName">
-            <h3>Nama depan</h3>
-            <p>si halus</p>
-        </div>
-        <div id="lastName">
-            <h3>Nama belakang</h3>
-            <p>dari goa hantu</p>
-        </div>
-        <div id="displayName">
-            <h3>Nama display</h3>
-            <p>mbuh</p>
-        </div>
-        <div id="email">
-            <h3>Email</h3>
-            <p>dfghjk@hahahihi.com</p>
-        </div>
-    </div>
-    <div class="ChangePass">
-        <h2>Ganti password</h2>
-        <p>Jika diperlukan</p>
-        <form action="">
-            <div id="oldPass">
-                <input type="password" name="" id="">
-            </div>
-            <div id="newPass">
-                <input type="password">
-            </div>
-            <div id="newPassr">
-                <input type="password">
-            </div>
-            <button type="submit" id="nPass">Ganti kata sandi</button>
-        </form>
-    </div>
+    <div class="in">
 
+        <script>//buat ubah tulisan profil (panjang dikit gk ngaruh ahdfsjhaiodbhj)
+            function view(n){
+                var pengguna = document.getElementById("pengguna");
+                var toko = document.getElementById("toko");
+                var penggunaDesc = document.getElementById("penggunaDesc");
+                var tokoDesc = document.getElementById("tokoDesc");
+
+                if (n == 1){
+                    if (pengguna.classList.contains("none")){
+                        pengguna.classList.add("background"); pengguna.classList.remove("none");
+                        penggunaDesc.classList.add("view"); penggunaDesc.classList.remove("hidden");
+                        toko.classList.remove("background"); toko.classList.add("none");
+                        tokoDesc.classList.remove("view"); tokoDesc.classList.add("hidden");
+                    }
+                }else  if(n == 2){
+                    if (toko.classList.contains("none")){
+                        toko.classList.add("background"); toko.classList.remove("none");
+                        tokoDesc.classList.add("view"); tokoDesc.classList.remove("hidden");
+                        pengguna.classList.remove("background"); pengguna.classList.add("none");
+                        penggunaDesc.classList.remove("view"); penggunaDesc.classList.add("hidden")
+                    }
+                }
+
+            }
+
+            function showPass(n){
+                switch (n){
+                    case 0:
+                        var x = document.getElementById("oldPass");
+                        break;
+                    case 1:
+                        var x = document.getElementById("newPass");
+                        break;
+                    case 2:
+                        var x = document.getElementById("newPassr");
+                        break;
+                }
+                if (x.type === "password"){
+                    x.type = "text";
+                }else{
+                    x.type = "password";
+                }
+            }
+        </script>
+    <div class="left" >
+        <div class="imgProfile">
+            <img src="../picture/abstrak1.png" alt="profile picture" class="pictSquare">
+        </div>
+        <div class="underImg">
+            <ul>
+                <li onclick="view(1)" class="background" id="pengguna">Profil Pengguna</li>
+                <li onclick="view(2)" class="none" id="toko">Profil Toko</li>
+            </ul>
+        </div>
+    </div>
+    <div class="right">
+        <div class="view" id="penggunaDesc">
+            <div class="profile">
+                <div id="firstName">
+                    <h3>Nama depan</h3>
+                    <p>si halus</p>
+                </div>
+                <div id="lastName">
+                    <h3>Nama belakang</h3>
+                    <p>dari goa hantu</p>
+                </div>
+                <div id="displayName">
+                    <h3>Nama display</h3>
+                    <p>mbuh</p>
+                </div>
+                <div id="email">
+                    <h3>Email</h3>
+                    <p>dfghjk@hahahihi.com</p>
+                </div>
+            </div>
+    
+            <div class="changePass">
+                <h2>Ganti password</h2>
+                <p>Jika diperlukan</p>
+                <form action="">
+                    <div>
+                        <input type="password" name="oldPass" id="oldPass" placeholder="Kata sandi lama" required><i class="fa-solid fa-eye" onclick="showPass(0)"></i>
+                    </div>
+                    <div>
+                        <input type="password" name="newPass" id="newPass" placeholder="Kata sandi baru" required><i class="fa-solid fa-eye" onclick="showPass(1)"></i>
+                    </div>
+                    <div>
+                        <input type="password" name="newPassr" id="newPassr" placeholder="Ulangi kata sandi baru" required><i class="fa-solid fa-eye" onclick="showPass(2)"></i>
+                    </div>
+                    <button type="submit" id="nPass">Ganti kata sandi</button>
+                </form>
+            </div>
+        </div>
+        <div class="hidden" id="tokoDesc">
+            <div class="profile">
+                <div id="marketName">
+                    <h3>Nama toko</h3>
+                    <p>si untung</p>
+                </div>
+                <div id="marketDesc">
+                    <h3>Deskripsi toko</h3>
+                    <p>dari goa hantu</p>
+                </div>
+                <div id="address">
+                    <h3>Alamat toko</h3>
+                    <p>jl hahahihi hoho hehe huhu kabupaten aaaaaaaaaaaaa lakjsdkjhaj Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, eius aperiam ad voluptatibus, odio dolore aliquid nisi voluptatum libero eum, mollitia consequuntur. Iusto est delectus quae omnis voluptatum enim quia!</p>
+                </div>
+                <div id="date">
+                    <h3>Tanggal toko pertama kali dibuka</h3>
+                    <p>23 hksdd 09898</p>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</div>
 </html>
