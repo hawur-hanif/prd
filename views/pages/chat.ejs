@@ -2,23 +2,32 @@
 <html>
     <%- include('../reusables/navbar.ejs') %>
     <link rel="stylesheet" href="../css/chat.css">
-    <div class="profileReceiver">
-        <div id="profileImg">
-            <img src="../picture/abstrak1.png" alt="">
+
+<div class="in">
+    <div id="in">
+        <div class="chat sender"> <!--btw ini dari bawah ke atas urutannya (yang paling baru/bawah) itu yang atas)-->
+            <img src="../picture/abstrak1.png" alt="foto profil" class="right">
+            <p>tes gan</p>
+            <span class="timeSend">12:66</span>
         </div>
-        <div id="profileName">
-            <p>apalah</p>
+        <div class="chat receiver">
+            <img src="../picture/abstrak1.png" alt="foto profil">
+            <p>haasdalo gan</p>
+            <span class="timeReceive">12:66</span>
+        </div>
+        <div class="chat sender">
+            <img src="../picture/abstrak1.png" alt="foto profil" class="right">
+            <p>halo gan</p>
+            <span class="timeSend">12:66</span>
+        </div>
+        <div class="chat sender">
+            <img src="../picture/abstrak1.png" alt="foto profil" class="right">
+            <p>halo gan</p>
+            <span class="timeSend">12:66</span>
         </div>
     </div>
-    <div class="chat sender">
-        <p>halo gan</p>
-        <span class="timeSend">12:66</span>
+    <div class="send">
+        <input type="text"><i style="margin: 5px;" class="fa-solid fa-paper-plane" onclick="send()//isiin bang"></i>
     </div>
-    <div class="chat receiver">
-        <p>halo gan</p>
-        <span class="timeSend">12:66</span>
-    </div>
-    <div>
-        <input type="text"><i class="fa-solid fa-paper-plane"></i>
-    </div>
+</div>
 </html>
