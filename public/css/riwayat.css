@@ -1,0 +1,98 @@
+.in{
+    height: 100%;
+    width: 100%;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+h1{
+    height: 5%;
+}
+.historyLine{
+    list-style-type: none;
+    padding: 0;
+    max-height: 750px;
+    overflow-y: scroll;
+}
+.history{
+    width: 100%;
+    height: 100px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-top:solid black 0.5px ;
+}
+#product{
+    display: inline-block;
+    width: 45%;
+}
+#quantity{
+    text-align: center;
+    display: inline-block;
+    width: 10%;
+}
+#price{
+    text-align: center;
+    display: inline-block;
+    width: 20%;
+}
+#condition{
+    text-align: center;
+    display: inline-block;
+    width: 20%;
+}
+
+.historyContainer #product{
+    height: 100px;
+}
+.history #quantity{
+    height: 60px;
+    text-align: center;
+    padding-top:25px ;
+}
+.history #price{
+    height: 60px;
+    text-align: center;
+    padding-top:40px ;
+}
+.history #condition{
+    height: 60px;
+    text-align: center;
+    padding-top:40px ;
+}
+.history #condition p, .history #price p{
+    margin: 0;
+}
+.historyContainer{
+    display: inline-block;
+    vertical-align: top;
+}
+#historyImg img{
+    width: 100px;
+    height: 100px;
+}
+#historyImg{
+    display: inline-block;
+    max-width: 20%;
+}
+#historyProduct{
+    display: inline-block;
+    width: 80%;
+    vertical-align: top;
+}
+#productName h3{
+    margin-top: 5px;
+    margin-bottom: 7px;
+    margin-left: 10px;
+}
+#boughtDate{
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+#productName, #boughtDate{
+    width: max-content;
+    height: max-content;
+}
+#boughtDate p{
+    display: inline-block;
+    margin: 3px;
+}
