@@ -49,6 +49,14 @@ app.get('/tes',(req,res) => {
   res.render('pages/tes');
 });
 
+app.get('/chat',(req,res) => {
+  res.render('pages/chat');
+});
+
+app.get('/admin-dash',(req,res) => {
+  res.render('pages/admin_dash');
+});
+
 app.get('/desession', (req,res)=>{
     req.session.destroy()
     res.redirect('/login')
