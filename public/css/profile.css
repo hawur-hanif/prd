@@ -41,6 +41,14 @@ ul li{
     background-color: black;
     color: white;
 }
+#toko, #pengguna{
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+}
+#toko:hover, #pengguna:hover{
+    background-color: rgb(170, 170, 170);
+}
 .profile h3{
     font-size: 23px;
     margin:0 3px 3px 0 ;
