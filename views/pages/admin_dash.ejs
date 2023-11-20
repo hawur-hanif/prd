@@ -46,18 +46,20 @@
 
   function drawChart() {
     var data = google.visualization.arrayToDataTable([
-      ['Hari', 'Sales', 'Expenses', 'Profit'],
-      ['Senin', 1000, 400, 200],
-      ['Selasa', 1170, 460, 250],
-      ['Rabu', 660, 1120, 300],
-      ['Kamis', 1030, 540, 350]
+      ['Tanggal', 'Stok Bawang', 'Order Bawang', 'Stok Cabai', 'Order Cabai'],
+      ['02-09-2023', 30, 10, 40, 5],
+      ['03-09-2023', 20, 10, 35, 20],
+      ['04-09-2023', 27, 15, 50, 23],
+      ['05-09-2023', 20, 15, 40, 24]
     ]);
 
     var options = {
       chart: {
         title: 'Perbandingan Supply Demand Produk di Jatinangor',
-        subtitle: 'Capek ih lanjut besok yh',
-      }
+        subtitle: 'Minggu ke-1, November',
+        explorer: {axis: 'horizontal'},
+      },
+      colors:["#264653", "#2A9D8F", "#F4A261", "#E76F51"]
     };
 
     var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
@@ -138,13 +140,6 @@
                     </a>
                 </li>
 
-                <li class="sidebar__link">
-                    <a href="#">
-                        <i class='sidebar__link-icon bx bxs-package'></i>
-                        <span class="sidebar__link-name">Stock Management</span>
-                    </a>
-                </li>
-
             </ul>
 
             <ul class="navbar_sec" style="margin-left: -20px;">
@@ -205,8 +200,10 @@
                 <span id="barchart_values" style="width: 450px; height: 50px;"></span>
             </div>
 
+            <span><h2 style="margin-bottom: -30px;">Manajemen Stok</h2></span>
+
             <div class="inline">
-                <span class="graph" id="columnchart_material" style="width: 400px; height: 250px;"></span>
+                <span class="graph" id="columnchart_material" style="width: 800px; height: 300px;"></span>
             </div>
 
         </div>
