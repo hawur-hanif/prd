@@ -57,6 +57,10 @@ app.get('/admin-dash',(req,res) => {
   res.render('pages/admin_dash');
 });
 
+app.get('/admin-transaksi',(req,res) => {
+  res.render('pages/admin_transaksi');
+});
+
 app.get('/desession', (req,res)=>{
     req.session.destroy()
     res.redirect('/login')
