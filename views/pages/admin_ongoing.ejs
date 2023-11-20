@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale1.0">
-        <link rel="stylesheet" href="../css/admin_transaksi.css">
+        <link rel="stylesheet" href="../css/admin_ongoing.css">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     </head>
 
@@ -33,15 +33,15 @@
 
                 <li class="sidebar__link">
                     <a href="#">
-                        <i class='sidebar__link-icon bx bxs-cart alt'></i>
-                        <span class="sidebar__link-name">Ongoing Order</span>
+                        <i class='sidebar__link-icon bx bxs-cart alt' style="color: #E76F51;"></i>
+                        <span class="sidebar__link-name" style="color: #E76F51;">Ongoing Order</span>
                     </a>
                 </li>
 
                 <li class="sidebar__link">
                     <a href="#">
-                        <i class='sidebar__link-icon bx bx-money-withdraw' style="color: #E76F51;"></i>
-                        <span class="sidebar__link-name" style="color: #E76F51;">Transaksi</span>
+                        <i class='sidebar__link-icon bx bx-money-withdraw'></i>
+                        <span class="sidebar__link-name">Transaksi</span>
                     </a>
                 </li>
 
@@ -78,7 +78,7 @@
         </nav>
 
         <div class="right">
-            <h1 style="margin-left: 30px; margin-top: 60px;">Transaksi</h1>
+            <h1 style="margin-left: 30px; margin-top: 60px;">Ongoing Order</h1>
 
             <form>
                 <input class="search" type="text" placeholder="cari...     " style="float: inline-end; margin-right: 30px; margin-bottom: 30px; height: 35px; font-size: 16px;">
@@ -94,7 +94,7 @@
                       <th>Total</th>
                       <th>Metode</th>
                       <th>Status</th>
-                      <th>Detil</th>
+                      <th>Panggil Kurir</th>
                     </tr>
                     <tr>
                       <td>#198</td>
@@ -104,6 +104,7 @@
                       <td>Rp30.000</td>
                       <td>BCA</td>
                       <td>In progress</td>
+                      <td><button>Panggil</button></td>
                     </tr>
                     <tr>
                         <td>#197</td>
@@ -112,7 +113,8 @@
                         <td>Bawang 1kg</td>
                         <td>Rp40.000</td>
                         <td>COD</td>
-                        <td>Finish</td>
+                        <td>OTW</td>
+                        <td><button disabled>Panggil</button></td>
                     </tr>
                     
                   </table>
@@ -120,3 +122,5 @@
         </div>
 
     </body>
+
+</html>
