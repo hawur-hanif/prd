@@ -65,6 +65,10 @@ app.get('/admin-ongoing',(req,res) => {
   res.render('pages/admin_ongoing');
 });
 
+app.get('/admin-produk',(req,res) => {
+  res.render('pages/admin_produk');
+});
+
 app.get('/desession', (req,res)=>{
     req.session.destroy()
     res.redirect('/login')
