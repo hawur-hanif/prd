@@ -1,19 +1,31 @@
 const mongoose = require('mongoose')
 
-const catSchema = new mongoose.Schema({
-    productName: {
-        type: String,
+const catalogueSchema = new mongoose.Schema({
+    productId: {
+        type: Number,
         required: true,
         unique: true
     },
-    ProductDesc: {
-        type: String,
-        required: true
-    },
-    ProductImg: {
+    productName: {
         type: String,
         required: true,
+    },
+    productRating: {
+        type: Number,
+        default: 0
+    },
+    productAmount: {
+        type:Number,
+        required: true
+    },
+    productImg: {
+        contentType: String,
+        data: Buffer
+    },
+    productPrice:{
+        type: Number,
+        required: true
     }
 })
 
-module.exports = mongoose.model('catalogue',catSchema)
+module.exports = mongoose.model('catalogue',catalogueSchema)

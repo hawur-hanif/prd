@@ -1,18 +1,21 @@
 <html>
     <ul>
-        <% for( let index = 0; index <= 11; index++ ) { %>
+        <% products.forEach(product => { %>
             <li class="blockDisplay">
                 <div class="display">
                     <div class="imgDisplay">
-                        <img src="../picture/abstrak1.png" alt="Display katalog">
+                        <img src="data:image/<%=product.productImg.type%>;base64,
+                        <%=product.productImg.data.toString('base64')%>"
+    
+                        alt="Display katalog">
                     </div>
                     <div class="leftSect">
                         <p class="desc" style="margin-bottom: 0;">
-                            Produk 1
+                            <%- product.productName %>
                         </p>
                         <p class="desc" style="display: inline-block;">
                             <i class="fa-solid fa-star" style="display: inline-block; width: 10%;"></i>
-                            <p style="display: inline-block; width: 40%; margin: 3px">rating</p>
+                            <p style="display: inline-block; width: 40%; margin: 3px"><%- product.productRating %></p>
                         </p>
                     </div>
                     <div class="rightSect">
@@ -20,14 +23,14 @@
                             Tersedia:
                         </p>
                         <p class="desc">
-                            17kg
+                            <%- product.productAmount %> kg
                         </p>
                     </div>
                     <div class="harga">
-                        <p>Rp 1.000.000.000</p>
+                        <p>Rp <%- product.productPrice %></p>
                     </div>
                 </div>
             </li>
-        <% } %>
+        <% }) %>
     </ul>
 </html>
