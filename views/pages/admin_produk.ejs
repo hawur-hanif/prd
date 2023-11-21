@@ -69,7 +69,7 @@
             </form>
 
             <div class="table-wrap" style="display: block;">
-                <table>
+                <table id="tbl">
                     <tr>
                       <th>No.</th>
                       <th>Produk</th>
@@ -80,7 +80,7 @@
                       <th>Review</th>
                       <th>Edit</th>
                     </tr>
-                    <tr>
+                    <tr class="row">
                       <td>1.</td>
                       <td>Bayam</td>
                       <td>Sayur</td>
@@ -90,7 +90,7 @@
                       <td>4.5</td>
                       <td><button class="myBtn">Edit</button></td>
                     </tr>
-                    <tr>
+                    <tr class="row">
                         <td>2.</td>
                         <td>Kemiri</td>
                         <td>Bumbu</td>
@@ -122,7 +122,7 @@
             <div class="inline" style="margin-top: -20px; margin-left: -1px;">
                 <span style="margin-right: 60px; margin-top: 30px;">
                     <p style="color: #264653;">Nama Produk</p>
-                    <input type="text">
+                    <input type="text" id="lol">
                 </span>
                 <span style="margin-top: 30px; margin-right: 60px;">
                     <p for="referrer" style="display: block;">Kategori Produk</p>
@@ -143,7 +143,7 @@
                     <input type="number">
                 </span>
                 <span style="margin-top: 70px;">
-                    <button>Simpan Perubahan</button>
+                    <button id="save" onclick="savechange()">Simpan Perubahan</button>
                 </span>
             </div>
         </form>
@@ -158,12 +158,22 @@
   
   // Get the button that opens the modal
   let btn = document.querySelectorAll(".myBtn");
+  var tbl = document.getElementById("tbl");
   for(let i = 0; i<btn.length; i++){
     // When the user clicks the button, open the modal 
     btn[i].onclick = function() {
     modal.style.display = "block";
   }
   }
+
+  function savechange() {
+        var row = document.getElementById("tbl").rows;
+        var r = 1;
+        var c = 1;
+        var col = row[r].cells;
+        var changed = document.getElementById("lol").value;
+        col[c].innerHTML = changed;
+    }
   
   // Get the <span> element that closes the modal
   var span = document.getElementsByClassName("close")[0];
@@ -179,6 +189,7 @@
       modal.style.display = "none";
     }
   }
+
   </script>
   
         

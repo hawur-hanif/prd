@@ -5,12 +5,35 @@
 
 <!DOCTYPE html>
 <html>
-  <head><link rel="stylesheet" href="../css/tes.css"></head>
   <body>
-    <div id="outer">
-      <div id="inner">
-        <div id="inner-inner"></div>
-      </div>
-    </div>
-  </body>
+  <table border="1" id="tbl">
+    <tr><td>text</td><td>text</td><td>text</td></tr>
+    <tr><td>text</td><td>text</td><td>text</td></tr>
+  </table>
+
+  <label for="row">Row: </label>
+<input type="number" id="row" value="1" />
+
+<label for="col">Column: </label>
+<input type="number" id="col" value="1" />
+
+<label for="textOut">Tekst: </label>
+<input type="text" id="tblText" name="text" value="Some text"/>
+
+<button onclick="changeTable()">Change cell</button>
+
+<script>
+  var tbl = document.getElementById("tbl");
+
+function changeTable () {
+  var row = document.getElementById("tbl").rows;
+  var r= document.getElementById("row").value
+  var c= document.getElementById("col").value
+  var col = row[r].cells;
+  col[c].innerHTML = document.getElementById("tblText").value;
+}
+</script>
+
+</body>
+
 </html>
