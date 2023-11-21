@@ -36,12 +36,12 @@ const storage = multer.diskStorage({
 const upload = multer({storage:storage})
 const path = require('path')
 const id = require('./id.json')
+const { default: mongoose } = require('mongoose')
+const catalogue = require('../models/catalogue')
 
 router.get('/postProduct',(req,res) => {
     res.render('pages/postProduct');
 });
-
-console.log(id.idNumber)
 
 router.post('/postProduct', upload.single('img'), (req,res)=>{
     Catalogue.create({
@@ -64,9 +64,10 @@ router.post('/postProduct', upload.single('img'), (req,res)=>{
             fs.writeFile(path.join(__dirname + '/id.json'),JSON.stringify(id), (err)=>{
                 if(err){ console.log(err)}
             })
-            res.redirect("/home")
+            res.redirect("/postProduct")
         }
     })
 })
+
 
 module.exports = router
