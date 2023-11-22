@@ -65,6 +65,10 @@ app.get('/admin-ongoing',(req,res) => {
   res.render('pages/admin_ongoing');
 });
 
+app.get('/admin-toko',(req,res) => {
+  res.render('pages/admin_profile');
+});
+
 app.get('/admin-produk',(req,res) => {
   res.render('pages/admin_produk');
 });
