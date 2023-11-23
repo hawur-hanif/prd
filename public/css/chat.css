@@ -1,11 +1,11 @@
 .in{
-    width: 100vw;
-    height: 100vh;
+    width: 95vw;
+    height: 88vh;
     display: block;
     margin: 0 3% 0 3%;
 }
 .in #in{
-    height: 83%;
+    height: 93%;
     overflow-y: scroll;
     display: flex;
     flex-direction: column-reverse;
@@ -23,13 +23,13 @@
 }
 .chat{
     border: solid 0.5px black;
-    width: 700px;
+    width: 50vw;
     padding: 5px;
     border-radius: 5px;
     margin: 8px;
 }
 .sender{
-    margin-left: 43%;
+    margin-left: 43vw;
 }
 .receiver{
     background-color: rgb(242, 242, 238);
@@ -50,7 +50,11 @@
 .send input{
     display: inline-block;
     bottom: 0;
-    width: 90%;
+    width: 95%;
     height: 17px;
     padding: 3px;
+}
+::-webkit-scrollbar{
+    width: 7px;
+    color: black;
 }
