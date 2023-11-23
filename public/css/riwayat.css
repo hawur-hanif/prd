@@ -1,43 +1,60 @@
 .in{
-    height: 100%;
-    width: 100%;
+    z-index: 0;
+    position: absolute;
+    height: 70vh;
+    width: 95%;
     margin-left: 3%;
     margin-right: 3%;
 }
 h1{
     height: 5%;
 }
+.historyTitle{
+    width: 95vw;
+}
 .historyLine{
     list-style-type: none;
     padding: 0;
-    max-height: 750px;
+    max-height: 68vh;
+    width: 97vw;
     overflow-y: scroll;
 }
 .history{
-    width: 100%;
+    width: 95vw;
     height: 100px;
     padding-top: 15px;
     padding-bottom: 15px;
     border-top:solid black 0.5px ;
+    display: flex;
+}
+#historyImg{
+    width: 20%;
+    height: 100px;
+    display: inline;
+}
+#historyProduct{
+    width: auto;
+    height: 100px;
+    display: inline;
 }
 #product{
-    display: inline-block;
-    width: 45%;
+    width: 60vw;
+    height: 100px;
 }
 #quantity{
     text-align: center;
     display: inline-block;
-    width: 10%;
+    width: 10vw;
 }
 #price{
     text-align: center;
     display: inline-block;
-    width: 20%;
+    width: 10vw;
 }
 #condition{
     text-align: center;
     display: inline-block;
-    width: 20%;
+    width: 10vw;
 }
 
 .historyContainer #product{
@@ -52,6 +69,7 @@ h1{
     height: 60px;
     text-align: center;
     padding-top:40px ;
+    width: 15vw;
 }
 .history #condition{
     height: 60px;
@@ -71,11 +89,12 @@ h1{
 }
 #historyImg{
     display: inline-block;
-    max-width: 20%;
+    max-width: 15%;
 }
 #historyProduct{
+    margin-left: 15px;
     display: inline-block;
-    width: 80%;
+    width: 70%;
     vertical-align: top;
 }
 #productName h3{
@@ -95,4 +114,77 @@ h1{
 #boughtDate p{
     display: inline-block;
     margin: 3px;
+}
+#addReview{
+    cursor: pointer;
+    color: blue;
+}
+.addCommentBlock{
+    justify-content: center;
+    background-color: aliceblue;
+    border: 1px black solid;
+    border-radius: 5px;
+    width: 50%;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+.addCommentBlock ul li{
+    cursor: pointer;
+    list-style-type: none;
+    display: inline;
+}
+.addCommentBlock *{
+    margin-left: 5px;
+}
+#commentText{
+    width: 95%;
+}
+.addCommentBlock button{
+    display: block;
+    margin-left: 45%;
+    background-color: rgb(81, 168, 81);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+.addCommentBlock button:hover{
+    background-color: rgb(52, 112, 52);
+}
+#exit{
+    float: right;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.inv{
+    display: none;
+    height: 0;
+    width: 0;
+}
+.star{
+    width: 200px;
+    margin-top: 0;
+}
+.star:not(:checked) input{
+    display: none;
+}
+.star:not(:checked) label{
+    cursor: pointer;
+    float: right;
+    color: black;
+    width: 1em;
+    white-space: nowrap;
+    font-size: 30px;
+}
+.star:not(:checked) label::before{
+    content: "★ ";
+}
+.star input:checked ~ label{
+    color:rgb(230, 181, 59);
 }
