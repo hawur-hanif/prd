@@ -1,134 +1,76 @@
-html, body{
-    max-width: 100%;
-    max-height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-.in{
-    margin-left: 5%;
-    margin-right: 5%;
-}
-.topSection{
-    background-color: rgb(193, 202, 193);
-    border: 0;
-    margin: 0;
-    padding: 7px;
-    display: flex;
-    text-decoration: none;
-    font-size: 30px;
-    width: 100%;
-    height: 50px;
-}
-.search{
-    width: 100%;
-    display: inline;
-}
-.search #searchBar{
-    height: 30px;
-    margin-right: 0;
-    width: 80%;
-    padding-top: 0;
-}
-.topSection #homeW{
-    display: inline-block;
-    width: 15%;
-    justify-content: center;
-    justify-items: center;
-}
-.topSection #homeAgrishop{
-    display: inline-block;
-    margin: 0;
-    justify-content: center;
-    justify-items: center;
-    text-align: center;
-}
-form.search button{
-    border: none;
-    background-color: rgb(60, 103, 15);
-    height: 30px;
-    margin-left: 0;
-    padding: 7px;
-    cursor: pointer;
-}
-form.search button:hover{
-    background-color: rgb(95, 179, 10);
-}
-.iconTop{
-    width: 10%;
-    padding-top:5px ;
-    display: inline-block;
-    margin-top: 0;
-}
-.navtop{
-    background-color: rgb(193, 202, 193);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 50%;
-    transform: translate(-50%,0);
-    position: relative;
-    font-size: 20px;
-    width: 100%;
-}
-.navtopBlock{
-    text-decoration: none;
-    color: black;
-}
-.navtop button{
-    text-decoration: none;
-    font-size: large;
-    border: none;
-    background-color: rgb(193, 202, 193);
-    padding-bottom: 5px;
-}
-.navtop button:hover{
-    background-color: rgb(179, 193, 179);
-}
-.navtop button.active{
-    background-color: white;
-}
 .productDescribe{
-    display: inline;
-    height: 400px;
+    display: inline-block;
+    height: max-content;
     width: 100%;
+    z-index: 1;
+    position: relative;
+    margin-bottom: 3vdh;
 }
 .productImg{
     display: inline;
-    height: 400px;
-    max-width: 40%;
+    min-height: 100px;
+    min-width: 100px;
+    max-height: 400px;
+    max-width: 10%;
+    width: auto;
+    z-index: 1;
+    position: relative;
+}
+#product{
+    max-width: 85%;
+}
+#description{
+    max-width: 85%;
 }
 .productImg img{
-    max-width: 40%;
+    min-height: 100px;
+    min-width: 100px;
+    max-width: 20dvw;
     max-height: 400px;
     height: auto;
+    width: auto;
+    z-index: 1;
+    position: relative;
 }
 .describe{
     width: 75%;
     height: 400px;
     height: auto;
     float: right;
+    z-index: 1;
+    position: relative;
 }
 .addToCart input, .addToCart p{
     display: inline;
+    z-index: 1;
+    position: relative;
 }
 .addToCart p{
     font-size: 20px;
+    z-index: 1;
+    position: relative;
 }
 .addToCart button{
     height: 35px;
+    cursor: pointer;
     background-color: rgb(81, 168, 81);
     color: white;
     border: none;
     border-radius: 5px;
     margin-left: 15px;
+    z-index: 1;
+    position: relative;
 }
-.addToCart button:hover #chat:hover{
+.addToCart button:hover, #chat:hover{
     background-color: rgb(52, 112, 52);
+    z-index: 1;
+    position: relative;
 }
 .chat h3{
-    margin-top: 75px;
+    margin-top: 10px;
     margin-bottom: 0;
+    z-index: 1;
+    position: relative;
 }
 #chat{
     color: white;
@@ -137,50 +79,156 @@ form.search button:hover{
     height: 30px;
     border: none;
     width: auto;
+    z-index: 1;
+    position: relative;
 }
 #chat a{
     text-decoration: none;
     color: white;
     height: 15px;
+    z-index: 1;
+    position: relative;
+}
+.report{
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+    height: 0;
+}
+#reportButton{
+    cursor: pointer;
+    margin-top: 3%;
+    float: right;
+    margin-right: 3%;
+    color: white;
+    background-color: red;
+    border: none;
+    border-radius: 3px;
+    height: 25px;
+    z-index: 2;
+    position: relative;
+}
+#reportButton:hover{
+    background-color: rgb(235, 162, 162)
+}
+#reportPopUp{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+    display: block;
+    max-height: 400px;
+    height: 400px;
+    width: 50%;
+    z-index: 2;
+    position: relative;
+    justify-content: center;
+    background-color: aliceblue;
+    border: 1px black solid;
+    border-radius: 5px;
+}
+#reportPopUp *{
+    margin-left: 5%;
+}
+#reportPopUp #exit{
+    cursor: pointer;
+    margin-top: 4px;
+    margin-right: 4px;
+    float: right;
+    z-index: 2;
+    position: relative;
+}
+#reportPopUp button{
+    cursor:pointer;
+    margin-right: 3%;
+    color: white;
+    background-color: red;
+    border: none;
+    border-radius: 3px;
+}
+#reportPopUp button:hover{
+    background-color: rgb(235, 162, 162)
+}
+.popup{
+    justify-content: center;
+    display: block;
+    width: 90%;
+    margin: 3px
+}
+.report .inv{
+    visibility: hidden;
+    float: left;
+    z-index: 1;
+    position: relative;
+}
+.report .show{
+    visibility: visible;
+    z-index: 1;
+    position: relative;
+}
+#deskripsiPelanggaran{
+    height: 70%;
+    text-align:left;
 }
 .comment{
     border-top: rgb(214, 206, 206) solid 2px;
+    z-index: 1;
+    position: relative;
 }
 .imgProfile{
     display: inline-block;
     margin-top: 7px;
+    z-index: 1;
+    position: relative;
 }
 .imgProfile img{
     width: 60px;
     height: 60px;
     border-radius: 50%;
+    z-index: 1;
+    position: relative;
 }
 .nameRate{
     display: inline-block;
+    z-index: 1;
+    position: relative;
 }
 .nameRate h2, .nameRate #date{
     display: inline;
+    z-index: 1;
+    position: relative;
 }
 #date{
     font-size: smaller;
+    z-index: 1;
+    position: relative;
 }
 .nameRate #star{
     display: block;
+    z-index: 1;
+    position: relative;
 }
 .nameRate h2{
     margin-bottom: 5px;
+    z-index: 1;
+    position: relative;
 }
 #comment{
     margin-top: 0;
     display: block;
     height: max-content;
+    z-index: 1;
+    position: relative;
 }
 .reviewComment{
     margin-left: 5px;
     overflow-y: scroll;
-    height: 225px;
+    height: 32vh;
+    z-index: 1;
+    position: relative;
 }
 ::-webkit-scrollbar{
     width: 7px;
     color: black;
+    z-index: 1;
+    position: relative;
 }
