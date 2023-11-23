@@ -4,7 +4,7 @@
     <%- include('../reusables/navbar') %>
     <div class="in">
 
-        <script>//buat ubah tulisan profil (panjang dikit gk ngaruh ahdfsjhaiodbhj)
+        <script>//buat ubah tulisan profil (udah gak guna)
             function view(n){
                 var pengguna = document.getElementById("pengguna");
                 var toko = document.getElementById("toko");
@@ -47,40 +47,63 @@
                     x.type = "password";
                 }
             }
+            function toko(){
+                window.location.href = "admin-profile";
+            }
+            function edit(){
+                var editing = document.getElementById("editButton");
+                if(editing.innerHTML == "Edit profil"){
+                document.getElementById("name").disabled = false;
+                document.getElementById("namel").disabled = false;
+                document.getElementById("named").disabled = false;
+                editing.innerHTML = "Batal";
+                document.getElementById("submitprf").classList.remove("hidden");
+                document.getElementById("pictprf").classList.remove("hidden")
+                editing.classList.add("cancel");
+                } else{
+                window.location.reload();
+                }
+            }
         </script>
     <div class="left" >
         <div class="imgProfile">
-            <img src="../picture/abstrak1.png" alt="profile picture" class="pictSquare">
+            <img src="../picture/defaultProfile.jpg" alt="profile picture" class="pictSquare">
         </div>
         <div class="underImg">
             <ul>
-                <li onclick="view(1)" class="background" id="pengguna">Profil Pengguna</li>
-                <a href="/admin-dash" style="color: black; text-decoration: none;">
-                    <li class="none" id="toko">Pengaturan Toko</li>
-                </a>
+                <li onclick="view(1)" class="background" id="pengguna" type="button">Profil Pengguna</li>
+                <li onclick="toko()" class="none" id="toko">Profil Toko</li>
             </ul>
         </div>
     </div>
     <div class="right">
         <div class="view" id="penggunaDesc">
+            <form action="">
             <div class="profile">
                 <div id="firstName">
                     <h3>Nama depan</h3>
-                    <p>si halus</p>
+                    <input type="text" id="name" value="si halus" disabled required>
                 </div>
                 <div id="lastName">
                     <h3>Nama belakang</h3>
-                    <p>dari goa hantu</p>
+                    <input type="text" id="namel" value="dari goa hantu" disabled required>
                 </div>
                 <div id="displayName">
                     <h3>Nama display</h3>
-                    <p>mbuh</p>
+                    <input type="text" id="named" value="mbuh" disabled required>
                 </div>
-                <div id="email">
+                <div id="Email">
                     <h3>Email</h3>
-                    <p>dfghjk@hahahihi.com</p>
+                    <input type="text" id="email" value="hfhgh@gmail.com" disabled required>
+                </div>
+                <div class="profilButton">
+                    <button onclick="edit()" id="editButton" type="button" class="editing">Edit profil</button>
+                    <label for="profilePict" class="hidden" id="pictprf">Ganti foto profil</label>
+                    <input type="file" id="profilePict" accept="image/*" style="display: none;" >
+                    <button type="submit" class="submitting hidden" id="submitprf">Ganti</button>
                 </div>
             </div>
+            </form>
     
             <div class="changePass">
                 <h2>Ganti password</h2>
