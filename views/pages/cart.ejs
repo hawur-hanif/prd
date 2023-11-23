@@ -6,27 +6,34 @@
         <div class="title">
             <h1>Keranjang</h1>
         </div>
+        <script>
+            function checkout(){
+                window.location.href = "checkout";
+            }
+        </script>
             <div>
-                <div class="checkoutTitle">
-                    <div class="checkoutTitleLine" id="product">
-                        <h2>Produk</h2>
-                    </div>
-                    <div class="checkoutTitleLine" id="quantity">
-                        <h2>Kuantitas</h2>
-                    </div>
-                    <div class="checkoutTitleLine" id="price">
-                        <h2>Harga</h2>
-                    </div>
-                    <div class="checkoutTitleLine" id="subtotal">
-                        <h2>Subtotal</h2>
-                    </div>
-                </div>
             <ul class="chekoutLine">
+                <li class="checkout" style="border: none;">
+                    <div class="checkoutTitle">
+                        <div class="checkoutTitleLine" id="product">
+                            <h2>Produk</h2>
+                        </div>
+                        <div class="checkoutTitleLine" id="quantity">
+                            <h2>Kuantitas</h2>
+                        </div>
+                        <div class="checkoutTitleLine" id="price">
+                            <h2>Harga</h2>
+                        </div>
+                        <div class="checkoutTitleLine" id="subtotal">
+                            <h2>Subtotal</h2>
+                        </div>
+                    </div>
+                </li>
                 <% for( let index = 0; index < 7; index++ ) { %>
                 <li class="checkout">
                     <div class="checkoutContainer" id="product">
                         <div id="checkoutImg">
-                            <img src="../picture/abstrak1.png" alt="Gambar produk">
+                            <img src="../picture/defaultProduct.jpg" alt="Gambar produk">
                         </div>
                         <div id="checkoutProduct">
                             <div id="productName">
@@ -36,13 +43,12 @@
                             <p>tersedia :</p><p>17.7</p><p>Kg</p>
                             </div>
                             <div id="remove">
-                            <input type="button" id="removeItem" >
-                            <label for="removeItem"><i class="fa-solid fa-trash"></i> hapus</label>
+                            <input type="button" id="removeItem" onclick="hapusbarang"><i class="fa-solid fa-trash"></i> hapus
                             </div>
                         </div>
                     </div>
                     <div class="checkoutContainer" id="quantity">
-                        <input type="text" name="kuantitas" id="item">Kg
+                        <input type="text" name="kuantitas" id="item" value="12 sesuai input sebelumnya">Kg
                     </div>
                     <div class="checkoutContainer" id="price">
                         <p>Rp 1.000.000.000/Kg</p>
@@ -59,7 +65,7 @@
             <p>Masukkan kupon untuk mendapat diskon</p>
             <form action="cek database" id="applyCoupon">
                 <input type="text"placeholder="Masukkan kupon (opsional)">
-                <button type="submit">Gunakan</button>
+                <button type="button">Gunakan</button>
             </form>
         </div>
         <div class="checkoutF">
@@ -74,7 +80,7 @@
                 </tr>
             </table>
             <div class="buy">
-                <button type="submit">Bayar</button>
+                <button type="submit" onclick="checkout()">Bayar</button>
             </div>
         </div>
     </div>
