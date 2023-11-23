@@ -1,36 +1,39 @@
 <html>
     <ul>
-        <% products.forEach(product => { %>
-            <li class="blockDisplay">
-                <div class="display">
-                    <div class="imgDisplay">
-                        <img src="data:image/<%=product.productImg.type%>;base64,
-                        <%=product.productImg.data.toString('base64')%>"
-    
-                        alt="Display katalog">
-                    </div>
-                    <div class="leftSect">
-                        <p class="desc" style="margin-bottom: 0;">
-                            <%- product.productName %>
-                        </p>
-                        <p class="desc" style="display: inline-block;">
-                            <i class="fa-solid fa-star" style="display: inline-block; width: 10%;"></i>
-                            <p style="display: inline-block; width: 40%; margin: 3px"><%- product.productRating %></p>
-                        </p>
-                    </div>
-                    <div class="rightSect">
-                        <p class="desc">
-                            Tersedia:
-                        </p>
-                        <p class="desc">
-                            <%- product.productAmount %> kg
-                        </p>
-                    </div>
-                    <div class="harga">
-                        <p>Rp <%- product.productPrice %></p>
-                    </div>
+        <% for( let index = 0; index < 10; index++ ) { %>
+        <script>
+            function pembelian(){
+                window.location.href = "pembelian";
+            }
+        </script>
+
+        <li class="blockDisplay">
+            <div class="display" onclick="pembelian()">
+                <div class="imgDisplay">
+                    <img src="../picture/defaultProduct.jpg" alt="Display katalog">
                 </div>
-            </li>
-        <% }) %>
+                <div class="leftSect">
+                    <p class="desc" style="margin-bottom: 0;">
+                        Produk 1
+                    </p>
+                    <p class="desc" style="display: inline-block;">
+                        <i class="fa-solid fa-star" style="display: inline-block; width: 10%;color: rgb(230, 181, 59);"></i>
+                        <p style="display: inline-block; width: 40%; margin: 3px;">rating</p>
+                    </p>
+                </div>
+                <div class="rightSect">
+                    <p class="desc">
+                        Tersedia:
+                    </p>
+                    <p class="desc">
+                        17kg
+                    </p>
+                </div>
+                <div class="harga">
+                    <p>Rp 1.000.000.000</p>
+                </div>
+            </div>
+        </li>
+        <% } %>
     </ul>
 </html>
