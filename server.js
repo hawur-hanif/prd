@@ -26,10 +26,12 @@ const loginRoutes = require('./routes/login')
 const signinRoutes = require('./routes/signin')
 const homeRoutes = require('./routes/home')
 const profileRoutes = require('./routes/profile')
+const pembelianRoutes = require('./routes/pembelian')
 app.use(loginRoutes)
 app.use(signinRoutes)
 app.use(homeRoutes)
 app.use(profileRoutes)
+app.use(pembelianRoutes)
 
 app.get('/', (req,res)=>{
     if (req.session.userId){
@@ -43,9 +45,7 @@ app.get('/cart',(req,res) => {
     res.render('pages/cart');
 });
 
-app.get('/pembelian',(req,res) => {
-  res.render('pages/pembelian');
-});
+
 
 app.get('/checkout',(req,res) => {
   res.render('pages/checkout');

@@ -62,7 +62,9 @@ router.post('/postProduct', upload.single('img'), (req,res)=>{
         productImg: {
             contentType: "image/png",
             data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename))
-        }
+        },
+        productDesc: req.body.desc,
+        productSource: req.body.source
     }).then((item,err)=>{
         if (err){
             console.log(err)

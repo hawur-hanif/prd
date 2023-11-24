@@ -25,6 +25,14 @@ const catalogueSchema = new mongoose.Schema({
     productPrice:{
         type: Number,
         required: true
+    },
+    productSource:{
+        type: String,
+        required: true
+    },
+    productDesc:{
+        type: String,
+        required: true
     }
 })
 

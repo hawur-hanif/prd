@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-    <link rel="stylesheet" href="../css/pembelian.css">
+    <%- include('../reusables/head.ejs') %>
+    </head>
     <%- include('../reusables/navbar') %>
 
     <body>
@@ -27,26 +28,27 @@
 
     <div class="productDescribe">
         <div class="productImg">
-            <img src="../picture/defaultProduct.jpg" alt="Gambar Produk">
+            <img src="data:image/<%=product.productImg.contentType%>;base64,
+            <%=product.productImg.data.toString('base64')%>" alt="Gambar Produk">
         </div>
         <div class="describe">
             <div class="insDesc" id="product">
-                <h1>si halus dari goa hantu(judul produk)</h1>
+                <h1><%- product.productName %></h1>
             </div>
             <div class="insDesc" id="description">
-                <p>si halus ini suka mengeong (berisi deskripsi produk dan jenis produk contoh: beras rojolele, mentik dll)</p>
+                <p><%- product.productDesc %></p>
             </div>
             <div class="insDesc" id="stars">
-                <p><i class="fa-solid fa-star" style="display: inline-block; color: rgb(230, 181, 59);"></i> 5.0(review) dari (total) review</p>
+                <p><i class="fa-solid fa-star" style="display: inline-block; color: rgb(230, 181, 59);"></i><%- product.productRating %></p>
             </div>
             <div class="insDesc" id="price">
-                <h2>Rp 1.000.000.000/Kg </h2>
+                <h2>Rp <%- product.productPrice %>/Kg </h2>
             </div>
             <div class="insDesc" id="remain">
-                <p>tesrsisa 67 Kg</p>
+                <p>tesrsisa <%- product.productAmount %> Kg</p>
             </div>
             <div class="addToCart">
-                <form action="cart" method="post">
+                <form action="/cart" method="post">
                     <input type="text" id="weight" placeholder="Kg" required style="width: 30px; height: 30px; text-align: center;">
                     <p>Kg</p>
                     <button id="cart" type="submit">Masukkan ke Keranjang</button>
@@ -54,7 +56,7 @@
             </div>
             <div class="chat">
                 <h3>Punya pertanyaan?</h3>
-                <p style="margin: 3px;">Toko pak haha hihi</p>
+                <p style="margin: 3px;"><%- product.productSource %></p>
                 <button id="chat"><a href="chat" >chat penjual</a></button>
             </div>
         </div>
