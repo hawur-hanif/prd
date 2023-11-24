@@ -43,6 +43,10 @@ app.get('/cart',(req,res) => {
     res.render('pages/cart');
 });
 
+app.get('/pembelian',(req,res) => {
+  res.render('pages/pembelian');
+});
+
 app.get('/checkout',(req,res) => {
   res.render('pages/checkout');
 });

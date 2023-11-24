@@ -1,24 +1,28 @@
 <html>
     <ul>
-        <% for( let index = 0; index < 10; index++ ) { %>
+            
         <script>
-            function pembelian(){
-                window.location.href = "pembelian";
+            function pembelian(productId){
+                window.location.href = "pembelian?productId=" + productId;
+                // console.log("pembelian?productId=" + productId)
             }
         </script>
 
+        <% products.forEach(product => { %>
+
         <li class="blockDisplay">
-            <div class="display" onclick="pembelian()">
+            <div class="display" onclick="pembelian('<%= product.productId %>')">
                 <div class="imgDisplay">
-                    <img src="../picture/defaultProduct.jpg" alt="Display katalog">
+                    <img src="data:image/<%=product.productImg.contentType%>;base64,
+                    <%=product.productImg.data.toString('base64')%>" alt="Display katalog">
                 </div>
                 <div class="leftSect">
                     <p class="desc" style="margin-bottom: 0;">
-                        Produk 1
+                        <%- product.productName %>
                     </p>
                     <p class="desc" style="display: inline-block;">
                         <i class="fa-solid fa-star" style="display: inline-block; width: 10%;color: rgb(230, 181, 59);"></i>
-                        <p style="display: inline-block; width: 40%; margin: 3px;">rating</p>
+                        <p style="display: inline-block; width: 40%; margin: 3px;"><%- product.productRating %></p>
                     </p>
                 </div>
                 <div class="rightSect">
@@ -26,14 +30,14 @@
                         Tersedia:
                     </p>
                     <p class="desc">
-                        17kg
+                        <%- product.productAmount %> Kg
                     </p>
                 </div>
                 <div class="harga">
-                    <p>Rp 1.000.000.000</p>
+                    <p>Rp <%- product.productPrice %></p>
                 </div>
             </div>
         </li>
-        <% } %>
+        <% }) %>>
     </ul>
 </html>
