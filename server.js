@@ -51,6 +51,10 @@ app.get('/checkout',(req,res) => {
   res.render('pages/checkout');
 });
 
+app.get('/riwayat',(req,res) => {
+  res.render('pages/riwayat');
+});
+
 app.get('/tes',(req,res) => {
   res.render('pages/tes');
 });
