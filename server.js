@@ -25,9 +25,11 @@ app.set('views','views')
 const loginRoutes = require('./routes/login')
 const signinRoutes = require('./routes/signin')
 const homeRoutes = require('./routes/home')
+const profileRoutes = require('./routes/profile')
 app.use(loginRoutes)
 app.use(signinRoutes)
 app.use(homeRoutes)
+app.use(profileRoutes)
 
 app.get('/', (req,res)=>{
     if (req.session.userId){
@@ -67,10 +69,6 @@ app.get('/admin-ongoing',(req,res) => {
 
 app.get('/admin-produk',(req,res) => {
   res.render('pages/admin_produk');
-});
-
-app.get('/profile',(req,res) => {
-  res.render('pages/profile');
 });
 
 app.get('/desession', (req,res)=>{

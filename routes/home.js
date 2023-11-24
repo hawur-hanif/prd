@@ -2,6 +2,14 @@ const express = require('express')
 const router = express.Router()
 const Catalogue = require('../models/catalogue')
 
+router.get('/homeload', (req,res)=>{
+    res.render('pages/loading_home', {
+        pageTitle: "Home",
+        path: "home",
+        errorMsg: "none"
+    })
+})
+
 router.get('/home',async (req,res)=>{
     await Catalogue.find({}).limit(11).then((products)=>{
         res.render('pages/home', {
@@ -14,9 +22,10 @@ router.get('/home',async (req,res)=>{
         res.render('pages/home', {
             pageTitle: "Home",
             path: "home",
-            errorMsg: "none",
+            errorMsg: "fuck you",
             products: "none"
         })
+        console.log('fak')
     })
 })
 

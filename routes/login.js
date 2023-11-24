@@ -10,7 +10,7 @@ router.get('/login', (req,res) => {
             errorMsg: "none"
     })
     else{
-        res.redirect('/home')
+        res.redirect('/homeload')
     }
     ;
 });
@@ -20,7 +20,7 @@ router.post('/login', async (req,res)=>{
         if(req.body.password == user.password){
             req.session.isLoggedIn = true
             req.session.user = user.email
-            res.redirect('/home')
+            res.redirect('/homeload')
         }else{
             res.render('pages/login', {
                 pageTitle: "Login",

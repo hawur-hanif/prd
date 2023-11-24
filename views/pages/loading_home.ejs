@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <%- include('../reusables/head.ejs') %>
+    </head>
+    <script src="https://kit.fontawesome.com/d55d71e4f6.js" crossorigin="anonymous"></script>
+
+    <%- include('../reusables/navbar.ejs') %>
+    <div class="promosSlideshow">
+        <div class="slideshow fade">
+            <iframe width="420" height="315 id" id="vid" muted
+            src="https://www.youtube.com/embed/TQQJD7D6PIU?autoplay=1">
+            </iframe>
+            <script>
+                document.getElementById("vid").play();
+            </script>
+        </div>
+        <div class="slideshow fade">
+            <a href=""><img src="../picture/promo1.png" alt=""></a>
+        </div>
+        <div class="slideshow fade">
+            <a href=""><img src="../picture/promo2.png" alt=""></a>
+        </div>
+
+        <a class="prev" onclick="addslide(-1)">&#10094;</a>
+        <a class="next" onclick="addslide(1)">&#10095;</a>
+    </div>
+
+    <div style="text-align: center;">
+        <span class="dot" onclick="slide(1)"></span>
+        <span class="dot" onclick="slide(2)"></span>
+        <span class="dot" onclick="slide(3)"></span>
+    </div>
+
+    <script>
+        let slideIndex = 1;
+        showSlide(slideIndex);
+
+        function addslide(n){
+            showSlide(slideIndex += n);
+        }
+        function slide(n){
+            showSlide(slideIndex = n);
+        }
+        
+        function showSlide(n){
+            let i;
+            let slides = document.getElementsByClassName("slideshow");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length){slideIndex = 1}
+            if (n < 1){slideIndex = slides.length}
+            for (i=0; i<slides.length; i++){
+                slides[i].style.display = "none";
+            }
+            for (i=0; i<dots.length; i++){
+                dots[i].className = dots[i].className.replace(" active","");
+            }
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+        }
+
+        window.onload = ()=>{
+           window.location.href = '/home'
+            console.log("redirecting...")
+        }
+    </script>
+
+    <div class="katalog" id="rekomendasi">
+        <h1>Rekomendasi</h1>
+    </div>
+    <div class="katalog" id="fresh">
+        <h1>Baru saja dipanen</h1>
+        <img src="../picture/loading.gif" >
+    </div>
+    <div class="katalog" id="topSeller">
+        <h1>Paling laku</h1>
+        <img src="../picture/loading.gif" >
+    </div>
+    <div class="katalog" id="">
+        <h1>Sesuai kebutuhanmu</h1>
+        <img src="../picture/loading.gif" >
+    </div>
+
+</html>
