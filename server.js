@@ -41,7 +41,7 @@ app.get('/', (req,res)=>{
     }
 })
 
-app.get('/cart',(req,res) => {
+app.post('/cart',(req,res) => {
     res.render('pages/cart');
 });
 
@@ -49,6 +49,10 @@ app.get('/cart',(req,res) => {
 
 app.get('/checkout',(req,res) => {
   res.render('pages/checkout');
+});
+
+app.get('/riwayat',(req,res) => {
+  res.render('pages/riwayat');
 });
 
 app.get('/tes',(req,res) => {
