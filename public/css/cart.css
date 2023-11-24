@@ -14,17 +14,17 @@
     list-style-type: none;
     padding: 0;
     max-height: 350px;
-    overflow-y: scroll;
+    overflow: scroll;
+    min-width: 95vw;
 }
 .chekoutTitle{
     border-bottom: rgb(214, 206, 206) solid 2px;
-
 }
 .chekoutTitleLine h2{
     width: max-content;
 }
 .checkout{
-    width: 100%;
+    width: 1300px;
     height: 100px;
     padding-top: 15px;
     padding-bottom: 15px;
@@ -33,16 +33,19 @@
 #product{
     display: inline-block;
     width: 45%;
+    min-width: 608px;
 }
 #quantity{
     text-align: center;
     display: inline-block;
     width: 10%;
+    min-width: 135px;
 }
 #price{
     text-align: center;
     display: inline-block;
     width: 20%;
+    min-width: 270px;
 }
 #subtotal{
     text-align: center;
@@ -111,6 +114,9 @@
     display: inline-block;
     margin: 3px;
 }
+#remove{
+    cursor: pointer;
+}
 #item{
     width: 30px;
 }
@@ -122,6 +128,7 @@
     margin: 0;
 }
 .coupon button{
+    cursor: pointer;
     background-color:rgb(60, 103, 15) ;
     color: white;
     border-radius: 5px;
@@ -150,7 +157,8 @@
     align-content: center;
 }
 .buy button{
-align-content: center;
+    cursor: pointer;
+    align-content: center;
    width: 100%;
    height: 30px;
    background-color:rgb(60, 103, 15) ;

@@ -30,6 +30,7 @@ html, body{
     height: auto;
     width: 350px;
     justify-content: center;
+    border: solid 1px rgb(193, 202, 193);
 }
 .judul{
     font-family:sans-serif ;

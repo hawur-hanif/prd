@@ -5,9 +5,29 @@
 
     <body>
     <div class="in">
+        <div class="report">
+            <button id="reportButton" onclick="report()">Laporkan</button>
+            <div id="reportPopUp" class="inv">
+                <div id="exit" onclick="report()"><i class="fa-solid fa-xmark"></i></div>
+                <label for="pelanggaran" class="popup">Pelanggaran</label>
+                <input type="text" id="pelanggaran" placeholder="Pelanggaran yang dilakukan" required class="popup">
+                <label for="deskripsiPelanggaran" class="popup">Deskripsi</label>
+                <textarea name="deskripsiPelanggaranText" id="deskripsiPelanggaran" cols="50" rows="10" class="popup" placeholder="Deskripsi pelanggaran"></textarea>
+                <button type="submit" class="popup">Laporkan</button>
+            </div>
+
+            <script>
+                // buat popup laporkan
+                function report(){
+                    var report = document.getElementById ("reportPopUp");
+                    report.classList.toggle("show");
+                }
+            </script>
+        </div>
+
     <div class="productDescribe">
         <div class="productImg">
-            <img src="../picture/abstrak1.png" alt="Gambar Produk">
+            <img src="../picture/defaultProduct.jpg" alt="Gambar Produk">
         </div>
         <div class="describe">
             <div class="insDesc" id="product">
@@ -26,7 +46,7 @@
                 <p>tesrsisa 67 Kg</p>
             </div>
             <div class="addToCart">
-                <form action="kirim ke database" method="post">
+                <form action="cart" method="post">
                     <input type="text" id="weight" placeholder="Kg" required style="width: 30px; height: 30px; text-align: center;">
                     <p>Kg</p>
                     <button id="cart" type="submit">Masukkan ke Keranjang</button>
@@ -34,16 +54,19 @@
             </div>
             <div class="chat">
                 <h3>Punya pertanyaan?</h3>
-                <button id="chat"><a href="chatPenjual" >chat penjual</a></button>
+                <p style="margin: 3px;">Toko pak haha hihi</p>
+                <button id="chat"><a href="chat" >chat penjual</a></button>
             </div>
         </div>
+
     </div>
 
-    <h1 style="margin-bottom: 5px;">Komentar Pembeli</h1>
-    <div class="reviewComment">
-        <div id="person1" class="comment">
+    <h1 style="margin-bottom: 5px; min-width: 500px; display: block;">Komentar Pembeli</h1>
+
+    <ul class="reviewComment" style="list-style-type: none; padding: 0;position: relative;">
+        <li id="person1" class="comment">
             <div class="imgProfile">
-                <img src="../picture/abstrak1.png" alt="">
+                <img src="../picture/defaultProfile.jpg" alt="">
             </div>
             <div class="nameRate">
             <h2 id="name">nama contoh: tuan kil</h2>
@@ -56,10 +79,10 @@
             </p>
             </div>
             <p id="comment">mantap bang</p>
-        </div>
-        <div id="person1" class="comment">
+        </li>
+        <li id="person1" class="comment">
             <div class="imgProfile">
-                <img src="../picture/abstrak1.png" alt="">
+                <img src="../picture/defaultProfile.jpg" alt="">
             </div>
             <div class="nameRate">
             <h2 id="name">nama contoh: nona dek</h2>
@@ -72,11 +95,11 @@
             </p>
             </div>
             <p id="comment">kucingnya kurang gede gan, kalo bisa ukurannya 100 kilo kali 1000 kilo kali 10000 kilo, tapi yaudahlahya</p>
-        </div>
+        </li>
 
-        <div id="person2" class="comment">
+        <li id="person2" class="comment">
             <div class="imgProfile">
-                <img src="../picture/abstrak1.png" alt="">
+                <img src="../picture/defaultProfile.jpg" alt="">
             </div>
             <div class="nameRate">
             <h2 id="name">nama contoh: tuan kil</h2>
@@ -92,11 +115,11 @@
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis id aliquid deserunt quam error dignissimos molestias porro eius, similique corporis repellat illo provident eum fuga iste voluptatum expedita, doloribus sit.
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, asperiores perspiciatis quibusdam officia reprehenderit possimus soluta culpa ad excepturi corporis eos vel labore? Repudiandae, consequatur dicta. Voluptatum quod earum aspernatur?
             </p>
-        </div>
+        </li>
 
-        <div id="person3" class="comment">
+        <li id="person3" class="comment">
             <div class="imgProfile">
-                <img src="../picture/abstrak1.png" alt="">
+                <img src="../picture/defaultProfile.jpg" alt="">
             </div>
             <div class="nameRate">
             <h2 id="name">nama contoh: tuan kil</h2>
@@ -109,11 +132,11 @@
             </p>
             </div>
             <p id="comment">mantap bang</p>
-        </div>
+        </li>
 
-        <div id="person4" class="comment">
+        <li id="person4" class="comment">
             <div class="imgProfile">
-                <img src="../picture/abstrak1.png" alt="">
+                <img src="../picture/defaultProfile.jpg" alt="">
             </div>
             <div class="nameRate">
             <h2 id="name">nama contoh: tuan kil</h2>
@@ -126,8 +149,8 @@
             </p>
             </div>
             <p id="comment">mantap bang</p>
-        </div>
-    </div>
+        </li>
+    </ul>
     
     </div>
     </body>

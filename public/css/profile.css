@@ -6,14 +6,14 @@
     position: relative;
     z-index: 1;
     margin: 3%;
-    width: 16%;
+    width: 16vw;
 }
 .right{
     display: inline-block;
     position: absolute;
     margin: 2%;
-    width: 100%;
-    height: 100%;
+    width: 70vw;
+    height: 80vh;
 }
 .imgProfile{
     width: 200px;
@@ -26,8 +26,8 @@
 img {
     display: inline;
     margin: 0 auto;
-    height: 100%;
-    width: 100%;
+    height: 200px;
+    width: 200px;
 }
 ul{
     padding: 0;
@@ -36,6 +36,7 @@ ul{
 ul li{
     font-size: 30px;
     margin: 10px;
+    width: 150px;
 }
 .background{
     background-color: black;
@@ -53,7 +54,7 @@ ul li{
     font-size: 23px;
     margin:0 3px 3px 0 ;
 }
-.profile p{
+.profile input{
     border: 1px solid black;
     border-radius: 5px;
     width: 700px;
@@ -61,6 +62,24 @@ ul li{
     height: max-content;
     padding:0  3px 3px 5px;
     margin-left: 3%;
+}
+.profilButton{
+    margin: 5px;
+}
+.editing, .submitting{
+    font-size: 18px;
+    background-color: rgb(81, 168, 81);
+    border-radius: 5px;
+    border: none;
+    color: white;
+    padding: 4px;
+    cursor: pointer;
+}
+.submitting{
+    float: right;
+}
+.editing:hover, .submitting:hover{
+    background-color: rgb(52, 112, 52);
 }
 .changePass h2, .changePass p{
     margin: 0 5px 0 0;
@@ -76,6 +95,7 @@ ul li{
     margin-left: 3%;
 }
 .changePass button{
+    cursor: pointer;
     font-size: 18px;
     background-color: rgb(81, 168, 81);
     border-radius: 5px;
@@ -99,4 +119,23 @@ ul li{
 }
 .hidden{
     visibility: hidden;
+}
+.cancel{
+    background-color: red;
+}
+.cancel:hover{
+    background-color: rgb(173, 18, 18);
+}
+.profilButton label{
+    margin-left: 15vw;
+    font-size: 18px;
+    background-color: rgb(81, 168, 81);
+    border-radius: 5px;
+    border: none;
+    color: white;
+    padding: 4px;
+    cursor: pointer;
+}
+.profilButton label:hover{
+    background-color: rgb(52, 112, 52);;
 }

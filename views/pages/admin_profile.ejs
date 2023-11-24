@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale1.0">
+        <link rel="stylesheet" href="../css/admin_profile.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    </head>
+
+    <body>
+        <nav class="sidebar">
+            <div class="sidebar__top-content">
+                <a href=""><img height="108px" width="192px" src="../picture/logo.png" alt=""></a>
+            </div>
+            <ul class="sidebar__links"style="margin-left: -20px; margin-top: -25px">
+
+                <p class="main_nav">MAIN MENU</p>
+
+                <li class="sidebar__link">
+                    <a href="/admin-dash">
+                        <i class='sidebar__link-icon bx bxs-home' ></i>
+                        <span class="sidebar__link-name">Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="sidebar__link">
+                    <a href="/admin-toko">
+                        <i class='sidebar__link-icon bx bxs-store' style="color: #E76F51;"></i>
+                        <span class="sidebar__link-name" style="color: #E76F51;">Profil Toko</span>
+                    </a>
+                </li>
+
+                <li class="sidebar__link">
+                    <a href="/admin-ongoing">
+                        <i class='sidebar__link-icon bx bxs-cart alt'></i>
+                        <span class="sidebar__link-name">Ongoing Order</span>
+                    </a>
+                </li>
+
+                <li class="sidebar__link">
+                    <a href="/admin-transaksi">
+                        <i class='sidebar__link-icon bx bx-money-withdraw'></i>
+                        <span class="sidebar__link-name">Transaksi</span>
+                    </a>
+                </li>
+
+                <li class="sidebar__link">
+                    <a href="/admin-produk">
+                        <i class='sidebar__link-icon bx bxs-cube' ></i>
+                        <span class="sidebar__link-name">List Produk</span>
+                    </a>
+                </li>
+
+            </ul>
+
+            <div class="out">
+                <a href="/home">
+                    <button style="background-color: #2A9D8F;">Keluar Dari Toko</button>
+                </a>
+            </div>
+        </nav>
+        <div class="right">
+            <h1 style="margin-top: 60px; margin-left: 30px; margin-bottom: 70px;">Profil Toko</h1>
+            <div style="display: flex; flex-direction: row; margin-left: 30px;">
+                <div style="height: 100px; width: 30%;">
+                    <img src="../picture/yo.jpeg" alt="ava" style="border-radius: 50%; width: 250px; height: 250px; margin-right: 50px; border: 8px solid #264653;">
+                    <button style="margin-left: 18%; margin-top: 20px; background-color: #E9C46A;">Ubah foto profil</button>
+                </div>
+                <div style="height: 100px; width: 70%; ">
+                    <h2 style="color: #F4A261;">Identitas Toko</h2>
+                    <form style="display: flex; border-bottom: 5px solid #26465328; padding-bottom: 30px;">
+                        <div style="width: 50%;">
+                            <p>Nama Toko</p>
+                            <input type="text" style="width: 250px;">
+                            <p>Kategori Toko</p>
+                            <select id="referrer" name="referrer" style="display: block;">
+                                <option value="">(Pilih satu)</option>
+                                <option value="1">Sayur</option>
+                                <option value="2">Bumbu/rempah</option>
+                                <option value="3">Buah</option>
+                                <option value="4">Lainnya</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <p>Deskripsi Toko</p>
+                            <textarea placeholder="Deskripsi toko..." style="width: 250px; height: 150px;"></textarea>
+                        </div>
+                    </form>
+
+                    <div style="margin-top: 20px; overflow: auto; border-bottom: 5px solid #26465328; padding-bottom: 30px;">
+                        <h2 style="color: #2A9D8F;">Identitas Pemilik Toko</h2>
+                        <form style="display: flex;">
+                            <div style="width: 50%;">
+                                <p>Nama</p>
+                                <input type="text">
+                            </div>
+                            <div style="width: 50%;">
+                                <p>Nomor rekening</p>
+                                <input type="number">
+                            </div>
+                        </form>
+                    </div>  
+
+                    <div style="margin-top: 20px; overflow: auto;">
+                        <h2 style="color: #E76F51;">Alamat Toko</h2>
+                        <form>
+                            <p>Alamat</p>
+                            <textarea placeholder="Masukkan alamat lengkap..." style="width: 100%; height: 100px;" ></textarea>
+                            <div style="display: flex;">
+                                <div style="width: 50%;">
+                                    <p>Kota/Kabupaten</p>
+                                    <input type="text" style="width: 70%;">
+                                </div>
+                                <div style="width: 50%;">
+                                    <p>Provinsi</p>
+                                    <input type="text" style="width: 70%;">
+                                </div>
+                            </div>
+                            <div style="background-color: #26465328; height: 5px; width: 100%; margin-top: 30px;"></div>
+                            <button style="margin-top: 50px; margin-left: 35%; margin-bottom: 40px; background-color: #E9C46A;">Simpan Perubahan</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>

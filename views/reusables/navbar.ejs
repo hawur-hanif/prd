@@ -4,9 +4,9 @@
     <div>
         <div class="topSection">
             <div id="homeW">
-            <a href="homeload" id="homeAgrishop" style="text-decoration: none; color: black;">Agrishop</a>
+            <a href="homeload" id="homeAgrishop" style="text-decoration: none; color: black;"><img src="../picture/logo.png" alt=""></a>
             </div>
-            <form action="" class="search">
+            <form action="" class="search" style="display: flex;">
                 <input type="search" name="searchBar" id="searchBar" placeholder="Cari sesuatu...">
                 <button type="submit"><i class="fa fa-search" id="searchLogo"></i></button>
             </form>
@@ -17,11 +17,21 @@
             </div>
         </div>
 
+        <script>
+            function show(){
+                document.getElementById("dropc").classList.toggle("show");
+            }
+        </script>
+
         <div class="navtop">
             <button type="menu"><a href="homeload" class="navtopBlock">Beranda</a></button>
             <button type="menu"><a href="riwayat" class="navtopBlock">Riwayat</a></button>
-            <button type="menu"><a href="tentang/bantuan" class="navtopBlock">tentang/bantuan</a></button>
-            <button type="menu"><a href="jual/beli" class="navtopBlock">Jual/Beli</a></button>
+            <div class="dropdown">
+                <button type="button" class="navtopBlock" style="cursor: pointer;" onclick="show()">Jual<i class="fa fa-caret-down" style="margin-left: 5px;"></i></button>
+                <div class="dropcontent" id="dropc">
+                    <a href="admin-profile" style="margin-left: 17px;">Tokoku</a>
+                </div>
+            </div>
         </div>
     </div>
 </html>
