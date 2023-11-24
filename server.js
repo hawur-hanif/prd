@@ -39,7 +39,7 @@ app.get('/', (req,res)=>{
     }
 })
 
-app.get('/cart',(req,res) => {
+app.post('/cart',(req,res) => {
     res.render('pages/cart');
 });
 
