@@ -2,17 +2,36 @@ const express = require('express')
 const router = express.Router()
 const tokoProfile = require('../models/tokoProfile')
 
-router.get('/admin-toko', (req,res)=>{
+router.get('/admin-toko',async (req,res)=>{
     if (req.session.user === undefined){
         res.render('pages/login', {
             pageTitle: "Login",
             path: "login",
             errorMsg: "none"
     })}else{
-    res.render('pages/admin_profile', {
-        pageTitle: "admin_profile",
-        path: "admin_profile"
-    })}
+        await tokoProfile.findOne({emailToko: req.session.user}).then((profil)=>{
+            if(profil==null){
+                 tokoProfile.find({emailToko: "defaultprop"}).then((prf)=>{
+                    res.render('pages/admin_profile', {
+                        pageTitle: "Admin-Profile",
+                        path: "admin_profile",
+                        errorMsg: "none",
+                        tokoprf: prf
+                })
+               })
+            }else{
+                tokoProfile.find({emailToko: req.session.user}).then((profil)=>{
+                res.render('pages/admin_profile', {
+                    pageTitle: "Admin-Profile",
+                    path: "admin_profile",
+                    errorMsg: "none",
+                    tokoprf: profil
+                })
+            })
+            }
+            
+        })
+    }
 })
 
 router.post('/admin-toko', async (req,res)=>{
