@@ -62,67 +62,70 @@
         </nav>
         <div class="right">
             <h1 style="margin-top: 60px; margin-left: 30px; margin-bottom: 70px;">Profil Toko</h1>
+            <form action="/admin-toko" method="post">
             <div style="display: flex; flex-direction: row; margin-left: 30px;">
                 <div style="height: 100px; width: 30%;">
                     <img src="../picture/yo.jpeg" alt="ava" style="border-radius: 50%; width: 250px; height: 250px; margin-right: 50px; border: 8px solid #264653;">
-                    <button style="margin-left: 18%; margin-top: 20px; background-color: #E9C46A;">Ubah foto profil</button>
+                    <input type="file" accept="image/*" id="imgToko" style="display: none;"></input>
+                    <label for="imgToko" style="margin-left: 18%; margin-top: 20px; background-color: #E9C46A;">Ubah foto profil</label>
                 </div>
                 <div style="height: 100px; width: 70%; ">
                     <h2 style="color: #F4A261;">Identitas Toko</h2>
-                    <form style="display: flex; border-bottom: 5px solid #26465328; padding-bottom: 30px;">
+                    <div style="display: flex; border-bottom: 5px solid #26465328; padding-bottom: 30px;">
                         <div style="width: 50%;">
                             <p>Nama Toko</p>
-                            <input type="text" style="width: 250px;">
+                            <input type="text" style="width: 250px;" id="tokoNama" name="tokoNama" value="">
                             <p>Kategori Toko</p>
                             <select id="referrer" name="referrer" style="display: block;">
                                 <option value="">(Pilih satu)</option>
-                                <option value="1">Sayur</option>
-                                <option value="2">Bumbu/rempah</option>
-                                <option value="3">Buah</option>
-                                <option value="4">Lainnya</option>
+                                <option value="sayur">Sayur</option>
+                                <option value="rempah">Bumbu/rempah</option>
+                                <option value="buah">Buah</option>
+                                <option value="lainnya">Lainnya</option>
                             </select>
                         </div>
 
                         <div>
                             <p>Deskripsi Toko</p>
-                            <textarea placeholder="Deskripsi toko..." style="width: 250px; height: 150px;"></textarea>
+                            <textarea placeholder="Deskripsi toko..." style="width: 250px; height: 150px;" id="tokoDeskripsi" name="tokoDeskripsi"></textarea>
                         </div>
-                    </form>
+                    </div>
 
                     <div style="margin-top: 20px; overflow: auto; border-bottom: 5px solid #26465328; padding-bottom: 30px;">
                         <h2 style="color: #2A9D8F;">Identitas Pemilik Toko</h2>
-                        <form style="display: flex;">
+                        <div style="display: flex;">
                             <div style="width: 50%;">
                                 <p>Nama</p>
-                                <input type="text">
+                                <input type="text" id="namaPemilik" name="namaPemilik">
                             </div>
                             <div style="width: 50%;">
                                 <p>Nomor rekening</p>
-                                <input type="number">
+                                <input type="number" id="tokoRekening" name="tokoRekening">
                             </div>
-                        </form>
+                        </div>
                     </div>  
 
                     <div style="margin-top: 20px; overflow: auto;">
                         <h2 style="color: #E76F51;">Alamat Toko</h2>
-                        <form>
+                        <div>
                             <p>Alamat</p>
-                            <textarea placeholder="Masukkan alamat lengkap..." style="width: 100%; height: 100px;" ></textarea>
+                            <textarea placeholder="Masukkan alamat lengkap..." style="width: 100%; height: 100px;" id="alamatLengkap" name="alamatLengkap"></textarea>
                             <div style="display: flex;">
                                 <div style="width: 50%;">
                                     <p>Kota/Kabupaten</p>
-                                    <input type="text" style="width: 70%;">
+                                    <input type="text" style="width: 70%;" id="kota" name="kota">
                                 </div>
                                 <div style="width: 50%;">
                                     <p>Provinsi</p>
-                                    <input type="text" style="width: 70%;">
+                                    <input type="text" style="width: 70%;" id="provinsi" name="provinsi">
                                 </div>
                             </div>
                             <div style="background-color: #26465328; height: 5px; width: 100%; margin-top: 30px;"></div>
-                            <button style="margin-top: 50px; margin-left: 35%; margin-bottom: 40px; background-color: #E9C46A;">Simpan Perubahan</button>
-                        </form>
+                            <button style="margin-top: 50px; margin-left: 35%; margin-bottom: 40px; background-color: #E9C46A;" type="submit">Simpan Perubahan</button>
+                        </div>
                     </div>
                 </div>
             </div>
+            </form>
         </div>
     </body>
