@@ -29,12 +29,22 @@ const homeRoutes = require('./routes/home')
 const profileRoutes = require('./routes/profile')
 const pembelianRoutes = require('./routes/pembelian')
 const cartRoutes = require('./routes/cart')
+const profileTokoRoutes = require('./routes/admin_profile')
+const tokoProdukRoutes = require('./routes/admin_produk')
+const tokoDashRoutes = require('./routes/admin_dash')
+const tokoOngoingRoutes = require('./routes/admin_ongoing')
+const tokoTransaksiRoutes = require('./routes/admin_transaksi')
 app.use(loginRoutes)
 app.use(signinRoutes)
 app.use(homeRoutes)
 app.use(profileRoutes)
 app.use(pembelianRoutes)
 app.use(cartRoutes)
+app.use(profileTokoRoutes)
+app.use(tokoProdukRoutes)
+app.use(tokoDashRoutes)
+app.use(tokoOngoingRoutes) 
+app.use(tokoTransaksiRoutes) 
 
 app.get('/', (req,res)=>{
     if (req.session.userId){
@@ -58,30 +68,6 @@ app.get('/tes',(req,res) => {
 
 app.get('/chat',(req,res) => {
   res.render('pages/chat');
-});
-
-app.get('/admin-dash',(req,res) => {
-  res.render('pages/admin_dash');
-});
-
-app.get('/admin-transaksi',(req,res) => {
-  res.render('pages/admin_transaksi');
-});
-
-app.get('/admin-ongoing',(req,res) => {
-  res.render('pages/admin_ongoing');
-});
-
-app.get('/admin-toko',(req,res) => {
-  res.render('pages/admin_profile');
-});
-
-app.get('/admin-produk',(req,res) => {
-  res.render('pages/admin_produk');
-});
-
-app.get('/admin-profile',(req,res) => {
-  res.render('pages/admin_profile');
 });
 
 app.get('/desession', (req,res)=>{
