@@ -13,8 +13,7 @@
         <li class="blockDisplay">
             <div class="display" onclick="pembelian('<%= product.productId %>')">
                 <div class="imgDisplay">
-                    <img src="data:image/<%=product.productImg.contentType%>;base64,
-                    <%=product.productImg.data.toString('base64')%>" alt="Display katalog">
+                    <img src="/uploads/<%= product.productImgURL %>" alt="Display katalog">
                 </div>
                 <div class="leftSect">
                     <p class="desc" style="margin-bottom: 0;">

@@ -13,6 +13,19 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true,
+    },
+    namaDepan: {
+        type: String
+    },
+    nameBelakang: {
+        type: String
+    },
+    productsIdList:[{
+        productId: String
+    }],
+    userImg: {
+        contentType: String,
+        data: Buffer
     }
 })
 

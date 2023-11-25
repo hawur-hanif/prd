@@ -5,7 +5,8 @@
     <%- include('../reusables/navbar') %>
     <div class="in">
 
-        <script>//buat ubah tulisan profil (udah gak guna)
+        <script>
+            //buat ubah tulisan profil (udah gak guna)
             function view(n){
                 var pengguna = document.getElementById("pengguna");
                 var toko = document.getElementById("toko");
@@ -67,84 +68,113 @@
             }
         </script>
         
-    <div class="left" >
-        <div class="imgProfile">
-            <img src="../picture/defaultProfile.jpg" alt="profile picture" class="pictSquare">
-        </div>
-        <div class="underImg">
-            <ul>
-                <li onclick="view(1)" class="background" id="pengguna" type="button">Profil Pengguna</li>
-                <li onclick="toko()" class="none" id="toko">Profil Toko</li>
-            </ul>
-        </div>
-    </div>
-    <div class="right">
-        <div class="view" id="penggunaDesc">
-            <form action="">
-            <div class="profile">
-                <div id="firstName">
-                    <h3>Nama depan</h3>
-                    <input type="text" id="name" value="si halus" disabled required>
+        <% if (errMsg=="none") { %>
+            <div class="left" >
+                <div class="imgProfile">
+                    <% if (user.userImg == undefined) { %>
+                        <img src="../picture/defaultProfile.jpg" alt="profile picture" class="pictSquare">
+                    <% } else { %>
+                        <img src="data:image/<%=user.userImg.contentType%>;base64,
+                        <%=user.userImg.data.toString('base64')%>" alt="profile picture" class="pictSquare">
+                    <% } %>
                 </div>
-                <div id="lastName">
-                    <h3>Nama belakang</h3>
-                    <input type="text" id="namel" value="dari goa hantu" disabled required>
-                </div>
-                <div id="displayName">
-                    <h3>Nama display</h3>
-                    <input type="text" id="named" value="mbuh" disabled required>
-                </div>
-                <div id="Email">
-                    <h3>Email</h3>
-                    <input type="text" id="email" value="hfhgh@gmail.com" disabled required>
-                </div>
-                <div class="profilButton">
-                    <button onclick="edit()" id="editButton" type="button" class="editing">Edit profil</button>
-                    <label for="profilePict" class="hidden" id="pictprf">Ganti foto profil</label>
-                    <input type="file" id="profilePict" accept="image/*" style="display: none;" >
-                    <button type="submit" class="submitting hidden" id="submitprf">Ganti</button>
+                <div class="underImg">
+                    <ul>
+                        <li onclick="view(1)" class="background" id="pengguna" type="button">Profil Pengguna</li>
+                        <li onclick="toko()" class="none" id="toko">Profil Toko</li>
+                    </ul>
                 </div>
             </div>
-            </form>
-    
-            <div class="changePass">
-                <h2>Ganti password</h2>
-                <p>Jika diperlukan</p>
-                <form action="">
-                    <div>
-                        <input type="password" name="oldPass" id="oldPass" placeholder="Kata sandi lama" required><i class="fa-solid fa-eye" onclick="showPass(0)" style="cursor: pointer;"></i>
+            <div class="right">
+                <div class="view" id="penggunaDesc">
+                    <form action="">
+                    <div class="profile">
+                        <div id="firstName">
+                            <h3>Nama Depan</h3>
+                            <input type="text" id="name" value="<%= user.namaDepan %>" disabled required>
+                        </div>
+                        <div id="lastName">
+                            <h3>Nama belakang</h3>
+                            <input type="text" id="namel" value="<%= user.namaBelakang %>" disabled required>
+                        </div>
+                        <div id="displayName">
+                            <h3>Nama display</h3>
+                            <input type="text" id="named" value="<%= user.username %>" disabled required>
+                        </div>
+                        <div id="Email">
+                            <h3>Email</h3>
+                            <input type="text" id="email" value="<%= user.email %>" disabled required>
+                        </div>
+                        <div class="profilButton">
+                            <button onclick="edit()" id="editButton" type="button" class="editing">Edit profil</button>
+                            <label for="profilePict" class="hidden" id="pictprf">Ganti foto profil</label>
+                            <input type="file" id="profilePict" accept="image/*" style="display: none;" >
+                            <button type="submit" class="submitting hidden" id="submitprf">Ganti</button>
+                        </div>
                     </div>
-                    <div>
-                        <input type="password" name="newPass" id="newPass" placeholder="Kata sandi baru" required><i class="fa-solid fa-eye" onclick="showPass(1)" style="cursor: pointer;"></i>
+                    </form>
+            
+                    <div class="changePass">
+                        <h2>Ganti password</h2>
+                        <p>Jika diperlukan</p>
+                        <form action="">
+                            <div>
+                                <input type="password" name="oldPass" id="oldPass" placeholder="Kata sandi lama" required><i class="fa-solid fa-eye" onclick="showPass(0)" style="cursor: pointer;"></i>
+                            </div>
+                            <div>
+                                <input type="password" name="newPass" id="newPass" placeholder="Kata sandi baru" required><i class="fa-solid fa-eye" onclick="showPass(1)" style="cursor: pointer;"></i>
+                            </div>
+                            <div>
+                                <input type="password" name="newPassr" id="newPassr" placeholder="Ulangi kata sandi baru" required><i class="fa-solid fa-eye" onclick="showPass(2)" style="cursor: pointer;"></i>
+                            </div>
+                            <button type="submit" id="nPass">Ganti kata sandi</button>
+                        </form>
                     </div>
-                    <div>
-                        <input type="password" name="newPassr" id="newPassr" placeholder="Ulangi kata sandi baru" required><i class="fa-solid fa-eye" onclick="showPass(2)" style="cursor: pointer;"></i>
+                </div>
+                <!-- udh obsolete yang dibawah ini -->
+                <div class="hidden" id="tokoDesc">
+                    <div class="profile">
+                        <div id="marketName">
+                            <h3>Nama toko</h3>
+                            <p>si untung</p>
+                        </div>
+                        <div id="marketDesc">
+                            <h3>Deskripsi toko</h3>
+                            <p>dari goa hantu</p>
+                        </div>
+                        <div id="address">
+                            <h3>Alamat toko</h3>
+                            <p>jl hahahihi hoho hehe huhu kabupaten aaaaaaaaaaaaa lakjsdkjhaj Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, eius aperiam ad voluptatibus, odio dolore aliquid nisi voluptatum libero eum, mollitia consequuntur. Iusto est delectus quae omnis voluptatum enim quia!</p>
+                        </div>
+                        <div id="date">
+                            <h3>Tanggal toko pertama kali dibuka</h3>
+                            <p>23 hksdd 09898</p>
+                        </div>
                     </div>
-                    <button type="submit" id="nPass">Ganti kata sandi</button>
-                </form>
+                </div>
             </div>
-        </div>
-        <div class="hidden" id="tokoDesc">
-            <div class="profile">
-                <div id="marketName">
-                    <h3>Nama toko</h3>
-                    <p>si untung</p>
+        <% } else { %>
+            <div class="left" >
+                <div class="imgProfile">
+                    <img src="../picture/defaultProfile.jpg" alt="profile picture" class="pictSquare">
                 </div>
-                <div id="marketDesc">
-                    <h3>Deskripsi toko</h3>
-                    <p>dari goa hantu</p>
-                </div>
-                <div id="address">
-                    <h3>Alamat toko</h3>
-                    <p>jl hahahihi hoho hehe huhu kabupaten aaaaaaaaaaaaa lakjsdkjhaj Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, eius aperiam ad voluptatibus, odio dolore aliquid nisi voluptatum libero eum, mollitia consequuntur. Iusto est delectus quae omnis voluptatum enim quia!</p>
-                </div>
-                <div id="date">
-                    <h3>Tanggal toko pertama kali dibuka</h3>
-                    <p>23 hksdd 09898</p>
+                <div class="underImg">
+                    <ul>
+                        <li onclick="view(1)" class="background" id="pengguna" type="button">Profil Pengguna</li>
+                        <li onclick="" class="none" id="toko">Profil Toko</li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </div>
+
+            <div class="right">
+                <div class="view" id="penggunaDesc">
+                    <p> <%- errMsg %></p>
+                    
+                    <button onclick="window.location.href = '/login'" type="button" class="editing">Login</button>
+                    </div>
+                </div>
+        <% } %>
+   
   
 </div>
 </html>

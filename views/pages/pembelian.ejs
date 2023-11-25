@@ -28,8 +28,7 @@
 
     <div class="productDescribe">
         <div class="productImg">
-            <img src="data:image/<%=product.productImg.contentType%>;base64,
-            <%=product.productImg.data.toString('base64')%>" alt="Gambar Produk">
+            <img src="/uploads/<%= product.productImgURL %>" alt="Gambar Produk">
         </div>
         <div class="describe">
             <div class="insDesc" id="product">

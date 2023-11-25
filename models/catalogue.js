@@ -12,15 +12,14 @@ const catalogueSchema = new mongoose.Schema({
     },
     productRating: {
         type: Number,
-        default: 0
     },
     productAmount: {
         type:Number,
         required: true
     },
-    productImg: {
-        contentType: String,
-        data: Buffer
+    productImgURL: {
+        type:String,
+        required:true
     },
     productPrice:{
         type: Number,

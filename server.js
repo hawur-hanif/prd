@@ -21,17 +21,20 @@ app.use(session({
 app.set('view engine','ejs')
 app.set('views','views')
 
+
 //routes
 const loginRoutes = require('./routes/login')
 const signinRoutes = require('./routes/signin')
 const homeRoutes = require('./routes/home')
 const profileRoutes = require('./routes/profile')
 const pembelianRoutes = require('./routes/pembelian')
+const cartRoutes = require('./routes/cart')
 app.use(loginRoutes)
 app.use(signinRoutes)
 app.use(homeRoutes)
 app.use(profileRoutes)
 app.use(pembelianRoutes)
+app.use(cartRoutes)
 
 app.get('/', (req,res)=>{
     if (req.session.userId){
@@ -40,12 +43,6 @@ app.get('/', (req,res)=>{
         res.redirect('/login')
     }
 })
-
-app.post('/cart',(req,res) => {
-    res.render('pages/cart');
-});
-
-
 
 app.get('/checkout',(req,res) => {
   res.render('pages/checkout');
@@ -81,6 +78,10 @@ app.get('/admin-toko',(req,res) => {
 
 app.get('/admin-produk',(req,res) => {
   res.render('pages/admin_produk');
+});
+
+app.get('/admin-profile',(req,res) => {
+  res.render('pages/admin_profile');
 });
 
 app.get('/desession', (req,res)=>{

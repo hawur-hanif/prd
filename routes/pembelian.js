@@ -1,9 +1,12 @@
 const express = require('express')
 const router = express.Router()
-const Catalogue = require('../models/catalogue');
 const catalogue = require('../models/catalogue');
 
 router.get('/pembelian', async (req,res) => {
+    if(req.query.productId == undefined){
+        res.redirect('/homeload')
+    }
+
     await catalogue.findOne({productId: req.query.productId}).then((product)=>{
         res.render('pages/pembelian', {
             pageTitle: "Pembelian",

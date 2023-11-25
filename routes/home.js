@@ -34,7 +34,7 @@ const fs = require('fs')
 const multer = require('multer')
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'routes/uploads')
+        cb(null, 'public/uploads')
     },
     filename: (req, file, cb) => {
         cb(null, file.fieldname + '-' + Date.now())
@@ -59,10 +59,7 @@ router.post('/postProduct', upload.single('img'), (req,res)=>{
         productAmount: req.body.amount,
         ProductRating: req.body.rating,
         productPrice: req.body.price,
-        productImg: {
-            contentType: "image/png",
-            data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename))
-        },
+        productImgURL: req.file.filename,
         productDesc: req.body.desc,
         productSource: req.body.source
     }).then((item,err)=>{
