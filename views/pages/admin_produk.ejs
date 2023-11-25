@@ -118,11 +118,11 @@
         <h2>Atur Produk</h2>
       </div>
       <div class="modal-body">
-        <form>
+        <form method="post" action="/admin-produk">
             <div class="inline" style="margin-top: -20px; margin-left: -1px;">
                 <span style="margin-right: 60px; margin-top: 30px;">
                     <p style="color: #264653;">Nama Produk</p>
-                    <input type="text" id="lol">
+                    <input type="text" id="lol" name="produk">
                 </span>
                 <span style="margin-top: 30px; margin-right: 60px;">
                     <p for="referrer" style="display: block;">Kategori Produk</p>
@@ -136,14 +136,14 @@
                 </span>
                 <span style="margin-top: 30px; margin-right: 60px;">
                     <p>Sisa Stok</p>
-                    <input type="number">
+                    <input type="number" name="stok">
                 </span>
                 <span style="margin-top: 30px; margin-right: 60px;">
                     <p>Harga Satuan</p>
-                    <input type="number">
+                    <input type="number" name="harga">
                 </span>
                 <span style="margin-top: 70px;">
-                    <button id="save" onclick="savechange()">Simpan Perubahan</button>
+                    <button id="save" <%# onclick="//savechange()" %> type="submit">Simpan Perubahan</button>
                 </span>
             </div>
         </form>
