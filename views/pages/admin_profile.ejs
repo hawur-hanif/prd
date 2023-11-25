@@ -60,6 +60,9 @@
                 </a>
             </div>
         </nav>
+
+        <% tokoprf.forEach(profil => { %>
+         
         <div class="right">
             <h1 style="margin-top: 60px; margin-left: 30px; margin-bottom: 70px;">Profil Toko</h1>
             <form action="/admin-toko" method="post">
@@ -74,10 +77,10 @@
                     <div style="display: flex; border-bottom: 5px solid #26465328; padding-bottom: 30px;">
                         <div style="width: 50%;">
                             <p>Nama Toko</p>
-                            <input type="text" style="width: 250px;" id="tokoNama" name="tokoNama" value="">
+                            <input type="text" style="width: 250px;" id="tokoNama" name="tokoNama" value="<%- profil.tokoNama %>">
                             <p>Kategori Toko</p>
                             <select id="referrer" name="referrer" style="display: block;">
-                                <option value="">(Pilih satu)</option>
+                                <option value="<%- profil.tokoKategori %>"><%- profil.tokoKategori %></option>
                                 <option value="sayur">Sayur</option>
                                 <option value="rempah">Bumbu/rempah</option>
                                 <option value="buah">Buah</option>
@@ -87,7 +90,7 @@
 
                         <div>
                             <p>Deskripsi Toko</p>
-                            <textarea placeholder="Deskripsi toko..." style="width: 250px; height: 150px;" id="tokoDeskripsi" name="tokoDeskripsi"></textarea>
+                            <textarea placeholder="Deskripsi toko..." style="width: 250px; height: 150px;" id="tokoDeskripsi" name="tokoDeskripsi"><%- profil.tokoDeskripsi %></textarea>
                         </div>
                     </div>
 
@@ -96,11 +99,11 @@
                         <div style="display: flex;">
                             <div style="width: 50%;">
                                 <p>Nama</p>
-                                <input type="text" id="namaPemilik" name="namaPemilik">
+                                <input type="text" id="namaPemilik" name="namaPemilik" value="<%- profil.tokoNamaPemilik %>">
                             </div>
                             <div style="width: 50%;">
                                 <p>Nomor rekening</p>
-                                <input type="number" id="tokoRekening" name="tokoRekening">
+                                <input type="number" id="tokoRekening" name="tokoRekening" value="<%- profil.tokoRekening %>">
                             </div>
                         </div>
                     </div>  
@@ -109,15 +112,15 @@
                         <h2 style="color: #E76F51;">Alamat Toko</h2>
                         <div>
                             <p>Alamat</p>
-                            <textarea placeholder="Masukkan alamat lengkap..." style="width: 100%; height: 100px;" id="alamatLengkap" name="alamatLengkap"></textarea>
+                            <textarea placeholder="Masukkan alamat lengkap..." style="width: 100%; height: 100px;" id="alamatLengkap" name="alamatLengkap"><%- profil.tokoAlamat.alamatLengkap %></textarea>
                             <div style="display: flex;">
                                 <div style="width: 50%;">
                                     <p>Kota/Kabupaten</p>
-                                    <input type="text" style="width: 70%;" id="kota" name="kota">
+                                    <input type="text" style="width: 70%;" id="kota" name="kota" value="<%- profil.tokoAlamat.kota %>">
                                 </div>
                                 <div style="width: 50%;">
                                     <p>Provinsi</p>
-                                    <input type="text" style="width: 70%;" id="provinsi" name="provinsi">
+                                    <input type="text" style="width: 70%;" id="provinsi" name="provinsi" value="<%- profil.tokoAlamat.provinsi %>">
                                 </div>
                             </div>
                             <div style="background-color: #26465328; height: 5px; width: 100%; margin-top: 30px;"></div>
@@ -127,5 +130,7 @@
                 </div>
             </div>
             </form>
+
         </div>
+        <% }) %>
     </body>
