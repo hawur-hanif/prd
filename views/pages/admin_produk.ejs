@@ -71,35 +71,26 @@
             <div class="table-wrap" style="display: block;">
                 <table id="tbl">
                     <tr>
-                      <th>No.</th>
                       <th>Produk</th>
-                      <th>Kategori</th>
+                      <th>Deskripsi</th>
                       <th>Harga Satuan</th>
                       <th>Stok</th>
                       <th>Terjual</th>
                       <th>Review</th>
                       <th>Edit</th>
                     </tr>
+                     
+                    <% produks.forEach(prdk => { %>
                     <tr class="row">
-                      <td>1.</td>
-                      <td>Bayam</td>
-                      <td>Sayur</td>
-                      <td>Rp2.000</td>
-                      <td>30</td>
-                      <td>180</td>
-                      <td>4.5</td>
-                      <td><button class="myBtn">Edit</button></td>
+                      <td style="max-width: 5vw; padding-right: 5px;"><%- prdk.produk %></td>
+                      <td style="max-width: 10vw;"><%- prdk.deskripsi %></td>
+                      <td>Rp<%- prdk.harga %></td>
+                      <td><%- prdk.stok %></td>
+                      <td><%- prdk.terjual %></td>
+                      <td><%- prdk.rating %></td>
+                      <td><button class="myBtn" onclick="edit('<%= prdk.produk %>')">Edit</button></td>
                     </tr>
-                    <tr class="row">
-                        <td>2.</td>
-                        <td>Kemiri</td>
-                        <td>Bumbu</td>
-                        <td>Rp500</td>
-                        <td>40</td>
-                        <td>200</td>
-                        <td>4.8</td>
-                        <td><button class="myBtn">Edit</button></td>
-                    </tr>
+                    <% }) %>
                     
                   </table>
             </div>
@@ -125,14 +116,8 @@
                     <input type="text" id="lol" name="produk">
                 </span>
                 <span style="margin-top: 30px; margin-right: 60px;">
-                    <p for="referrer" style="display: block;">Kategori Produk</p>
-                    <select id="referrer" name="referrer" style="display: block;">
-                        <option value="">(select one)</option>
-                        <option value="1">Sayur</option>
-                        <option value="2">Bumbu/rempah</option>
-                        <option value="3">Buah</option>
-                        <option value="4">Lainnya</option>
-                    </select>
+                    <p for="referrer" style="display: block;">Deskripsi Produk</p>
+                    <textarea name="deskripsi" id="referrer" cols="50" rows="3"></textarea>
                 </span>
                 <span style="margin-top: 30px; margin-right: 60px;">
                     <p>Sisa Stok</p>
@@ -143,7 +128,7 @@
                     <input type="number" name="harga">
                 </span>
                 <span style="margin-top: 70px;">
-                    <button id="save" <%# onclick="//savechange()" %> type="submit">Simpan Perubahan</button>
+                    <button id="save" type="submit">Simpan Perubahan</button>
                 </span>
             </div>
         </form>
