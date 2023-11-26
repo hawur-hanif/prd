@@ -16,10 +16,14 @@ router.get('/admin-produk', (req,res)=>{
                 path: "admin_profile",
             })
         } else{
-            res.render('pages/admin_produk', {
-                pageTitle: "admin_produk",
-                path: "admin_produk",
+            tokoProduk.find({emailPenjual: req.session.user}).then((produk)=>{
+                res.render('pages/admin_produk', {
+                    pageTitle: "Admin-Produk",
+                    path: "admin_produk",
+                    errorMsg: "none",
+                    produks: produk
             })
+           })
         }
     })}
 })
@@ -28,32 +32,42 @@ router.post('/admin-produk', async (req,res)=>{
     await tokoProduk.findOne({produk: req.body.produk}).then( async (r)=>{
         if(r==null){
             const tokoproduk = new tokoProduk({
-                idProdukJual: req.session.user,
+                emailPenjual: req.session.user,
                 produk: req.body.produk,
-                referrer: req.body.referrer,
+                deskripsi: req.body.deskripsi,
                 stok: req.body.stok,
-                harga: req.body.harga
+                harga: req.body.harga,
+                rating: 0,
+                terjual:0
             })
             await tokoproduk.save()
-            res.render('pages/admin_produk', {
-                pageTitle: "admin_produk",
-                path: "admin_produk"
+            tokoProduk.find({emailPenjual: req.session.user}).then((produk)=>{
+                res.render('pages/admin_produk', {
+                    pageTitle: "Admin-Produk",
+                    path: "admin_produk",
+                    errorMsg: "none",
+                    produks: produk
             })
+           })
         } else{
             const updatetokoProduk = tokoProduk.updateOne({
-                produk: req.body.produk
+                produk: req.body.produk, emailPenjual: req.session.user
             }, {
                 $set: {
-                    referrer: req.body.referrer,
+                    deskripsi: req.body.deskripsi,
                     stok: req.body.stok,
-                    harga: req.body.harga
+                    harga: req.body.harga,
                 }
             })
             await updatetokoProduk.updateOne()
-            res.render('pages/admin_produk', {
-                pageTitle: "admin_produk",
-                path: "admin_produk",
+            tokoProduk.find({emailPenjual: req.session.user}).then((produk)=>{
+                res.render('pages/admin_produk', {
+                    pageTitle: "Admin-Produk",
+                    path: "admin_produk",
+                    errorMsg: "none",
+                    produks: produk
             })
+           })
         }
     })
 })
