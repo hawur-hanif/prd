@@ -52,9 +52,13 @@ router.post('/admin-toko', async (req,res)=>{
                 }
             })
             await tokoprofile.save()
-            res.render('pages/admin_profile', {
-                pageTitle: "admin_profile",
-                path: "admin_profile"
+            tokoProfile.find({emailToko: req.session.user}).then((profil)=>{
+                res.render('pages/admin_profile', {
+                    pageTitle: "Admin-Profile",
+                    path: "admin_profile",
+                    errorMsg: "none",
+                    tokoprf: profil
+                })
             })
         } else{
             const updatetokoProfile = tokoProfile.updateOne({
@@ -75,9 +79,13 @@ router.post('/admin-toko', async (req,res)=>{
                 }
             })
             await updatetokoProfile.updateOne()
-            res.render('pages/admin_profile', {
-                pageTitle: "admin_profile",
-                path: "admin_profile",
+            tokoProfile.find({emailToko: req.session.user}).then((profil)=>{
+                res.render('pages/admin_profile', {
+                    pageTitle: "Admin-Profile",
+                    path: "admin_profile",
+                    errorMsg: "none",
+                    tokoprf: profil
+                })
             })
         }
     })
