@@ -1,12 +1,51 @@
-const express = require('express')
+const express = require('express');
+const User = require('../models/user');
+const Catalogue = require('../models/catalogue');
 const router = express.Router()
 
-router.get('/cart',(req,res) => {
-    res.render('pages/cart', {
-        pageTitle: "Cart",
-        path: "cart",
-        errorMsg: "none"
-    });
+
+router.get('/cart', async (req,res) => {
+    if (!req.session.isLoggedIn){
+        res.render('pages/cart', {
+            pageTitle: "Cart",
+            path: "cart",
+            errMsg: "You are not logged in",
+            cart: 'none'
+        });
+    } else{
+        await User.findOne({email:req.session.user}).then( async (user)=>{
+            let ids = user.cart.map((x)=>{
+                return x.productId
+            })
+            await Catalogue.find({productId: ids}).then(product=>{
+                let cart = product.map((x,i)=>{return [x,user.cart[i].amount]})
+                res.render('pages/cart', {
+                    pageTitle: "Cart",
+                    path: "cart",
+                    errMsg: "none",
+                    cart: user.cart.length == 0 ? null : cart
+                });
+            })
+        })
+        
+    }
+    
 });
+
+router.post('/deCart', async (req,res)=>{
+    await User.updateOne( {email:req.session.user}, {
+        $pull: {cart : {productId: req.body.productId }}
+    })
+    res.redirect('/cart')
+    })
+
+router.post('/chgAmount', async (req,res)=>{
+    await User.updateOne( {email:req.session.user, cart: { '$elemMatch': {productId: req.body.productId} }}, {
+        $set: {'cart.$.amount' : req.body.kuantitas}
+    })
+    res.redirect('/cart')
+    })
+
+
 
 module.exports = router

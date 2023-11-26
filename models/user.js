@@ -20,8 +20,8 @@ const userSchema = new mongoose.Schema({
     nameBelakang: {
         type: String
     },
-    productsIdList:[{
-        productId: String
+    cart:[{
+        productId: String, amount: Number
     }],
     userImg: {
         contentType: String,

@@ -12,7 +12,8 @@
                 window.location.href = "checkout";
             }
         </script>
-            <div>
+    <% if (errMsg=='none') { %>
+        <div>
             <ul class="chekoutLine">
                 <li class="checkout" style="border: none;">
                     <div class="checkoutTitle">
@@ -30,59 +31,99 @@
                         </div>
                     </div>
                 </li>
-                <% for( let index = 0; index < 7; index++ ) { %>
-                <li class="checkout">
-                    <div class="checkoutContainer" id="product">
-                        <div id="checkoutImg">
-                            <img src="../picture/defaultProduct.jpg" alt="Gambar produk">
-                        </div>
-                        <div id="checkoutProduct">
-                            <div id="productName">
-                            <h3>Si halus dari goa hantu(nama produk)</h3>
+
+                <% if (cart==null) { %>
+                    <p>Kamu belum memasukkan produk ke dalam keranjang</p>
+                    <button onclick="window.location.href = '/homeload'" type="button" class="buy">Beli Sekarang!</button>
+                <% } else { %>
+                    <% cart.forEach((product)=>{ %>                     
+                        <li class="checkout">
+                            <div class="checkoutContainer" id="product">
+                                <div id="checkoutImg">
+                                    <img src="/uploads/<%= product[0].productImgURL %>" alt="Gambar produk">
+                                </div>
+                                <div id="checkoutProduct">
+                                    <div id="productName">
+                                    <h3><%- product[0].productName %></h3>
+                                    </div>
+                                    <div id="remain">
+                                    <p>tersedia :</p><p><%- product[0].productAmount %> kg</p>
+                                    </div>
+                                    <div id="remove" onclick="document.getElementById('deCart').submit();console.log('submit bitcj')">
+                                    <form action="/deCart" method="post" id="deCart">
+                                        <input type="text" value="<%= product[0].productId %>" name="productId" style="display: none;">
+                                        <input type="button" id="removeItem" ><i class="fa-solid fa-trash"></i> hapus
+                                    </form>
+                                    </div>
+                                </div>
                             </div>
-                            <div id="remain">
-                            <p>tersedia :</p><p>17.7</p><p>Kg</p>
+                            <div class="checkoutContainer" id="quantity">
+                                <form action="/chgAmount" method="post" id="chgAmount">
+                                    <input type="text" value="<%= product[0].productId %>" name="productId" style="display: none;">
+                                    <input type="text" name="kuantitas" id="item" value="<%= product[1] %>" onchange="checkWeight()" >Kg
+                                </form>
+                                <script> 
+                                    function checkWeight(){
+                                        let max = new Number('<%= product[0].productAmount %>')
+                                        if (document.getElementById('item').value > max){
+                                            window.alert('Pesanan melebihi stok')
+                                            document.getElementById('item').value = max
+                                        } 
+                                        document.getElementById('chgAmount').submit()                                    
+                                    } 
+                                </script>
                             </div>
-                            <div id="remove">
-                            <input type="button" id="removeItem" onclick="hapusbarang"><i class="fa-solid fa-trash"></i> hapus
+                            <div class="checkoutContainer" id="price">
+                                <p>Rp <%- (product[0].productPrice).toFixed(2).replace('.',',').replace(/\d(?=(\d{3})+\,)/g, '$&.')  %>/Kg</p>
                             </div>
-                        </div>
-                    </div>
-                    <div class="checkoutContainer" id="quantity">
-                        <input type="text" name="kuantitas" id="item" value="12 sesuai input sebelumnya">Kg
-                    </div>
-                    <div class="checkoutContainer" id="price">
-                        <p>Rp 1.000.000.000/Kg</p>
-                    </div>
-                    <div class="checkoutContainer" id="subtotal">
-                        <p>harga*kuantitas</p>
-                    </div>
-                </li>
+                            <div class="checkoutContainer" id="subtotal">
+                                <p>Rp <%- (product[0].productPrice * product[1]).toFixed(2).replace('.',',').replace(/\d(?=(\d{3})+\,)/g, '$&.') %></p>
+                            </div>
+                        </li>
+                    <% }) %>
                 <% } %>
             </ul>
         </div>
-        <div class="coupon">
-            <h3>Apakah Anda mempunyai kupon?</h3>
-            <p>Masukkan kupon untuk mendapat diskon</p>
-            <form action="cek database" id="applyCoupon">
-                <input type="text"placeholder="Masukkan kupon (opsional)">
-                <button type="button">Gunakan</button>
-            </form>
-        </div>
-        <div class="checkoutF">
-            <table>
-                <tr>
-                    <td style="width: 150px;">Subtotal</td>
-                    <td>Rp 68676767</td>
-                </tr>
-                <tr>
-                    <td style="border-top: 0.5px solid black;">Total</td>
-                    <td style="border-top: 0.5px solid black;">subtotal-kupon</td>
-                </tr>
-            </table>
-            <div class="buy">
-                <button type="submit" onclick="checkout()">Bayar</button>
+
+        <% if (!(cart==null)) { %>
+            <div class="coupon">
+                <h3>Apakah Anda mempunyai kupon?</h3>
+                <p>Masukkan kupon untuk mendapat diskon</p>
+                <form action="cek database" id="applyCoupon">
+                    <input type="text"placeholder="Masukkan kupon (opsional)" disabled>
+                    <button type="button" disabled>Gunakan</button>
+                </form>
             </div>
+            <div class="checkoutF">
+                <table>
+                    <tr>
+                        <td style="width: 150px;">Subtotal</td>
+                        <% let price = cart.length == 1? [cart[0][0].productPrice*cart[0][1],1] : cart.map((a)=>{ 
+                            return [ a[0].productPrice, a[1] ]}).reduce((a,b)=>{
+                            return [ a[0]*a[1] + b[0]*b[1], 1]
+                        })
+                        
+                        %>
+                        <td>Rp <%- (price[0]).toFixed(2).replace('.',',').replace(/\d(?=(\d{3})+\,)/g, '$&.') %></td>
+                    </tr>
+                    <tr>
+                        <td style="border-top: 0.5px solid black;">Total</td>
+                        <td style="border-top: 0.5px solid black;"> Rp <%- price[0].toFixed(2).replace('.',',').replace(/\d(?=(\d{3})+\,)/g, '$&.') %>  </td>
+                    </tr>
+                </table>
+                <div class="buy">
+                    <button type="submit" onclick="checkout()">Bayar</button>
+                </div>
+            </div>
+        <% } %>   
+        
+
+
+    <% } else { %>
+        <p style="text-align: center;"><%- errMsg %></p>
+        <div class="buy">
+            <button onclick="window.location.href = '/login'" type="button">Login</button>
         </div>
+    <% } %>
     </div>
 </html>

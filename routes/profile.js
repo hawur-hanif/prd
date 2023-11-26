@@ -11,13 +11,15 @@ router.get('/profile', async (req,res)=>{
             errMsg: "You are not Logged in"
         })
     }else{
-        await User.find({email:req.session.user}).then((user)=>{
+        await User.findOne({email:req.session.user}).then((user)=>{
             res.render('pages/profile', {
                 pageTitle: "Profile",
                 path: "profile", 
                 errMsg: 'none',
                 user: user
             })
+
+            console.log(user.userImg);
         })  
     }
 })

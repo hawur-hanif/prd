@@ -71,7 +71,7 @@
         <% if (errMsg=="none") { %>
             <div class="left" >
                 <div class="imgProfile">
-                    <% if (user.userImg == undefined) { %>
+                    <% if (user.userImg.data == undefined) { %>
                         <img src="../picture/defaultProfile.jpg" alt="profile picture" class="pictSquare">
                     <% } else { %>
                         <img src="data:image/<%=user.userImg.contentType%>;base64,
@@ -85,13 +85,14 @@
                     </ul>
                 </div>
             </div>
+
             <div class="right">
                 <div class="view" id="penggunaDesc">
                     <form action="">
                     <div class="profile">
                         <div id="firstName">
                             <h3>Nama Depan</h3>
-                            <input type="text" id="name" value="<%= user.namaDepan %>" disabled required>
+                            <input type="text" id="name" value="<%- user.namaDepan %>" disabled required>
                         </div>
                         <div id="lastName">
                             <h3>Nama belakang</h3>
@@ -99,11 +100,11 @@
                         </div>
                         <div id="displayName">
                             <h3>Nama display</h3>
-                            <input type="text" id="named" value="<%= user.username %>" disabled required>
+                            <input type="text" id="named" value="<%- user.username %>" disabled required>
                         </div>
                         <div id="Email">
                             <h3>Email</h3>
-                            <input type="text" id="email" value="<%= user.email %>" disabled required>
+                            <input type="text" id="email" value="<%- user.email %>" disabled required>
                         </div>
                         <div class="profilButton">
                             <button onclick="edit()" id="editButton" type="button" class="editing">Edit profil</button>
@@ -153,6 +154,7 @@
                     </div>
                 </div>
             </div>
+
         <% } else { %>
             <div class="left" >
                 <div class="imgProfile">
