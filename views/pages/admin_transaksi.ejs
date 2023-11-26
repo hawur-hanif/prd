@@ -78,27 +78,19 @@
                       <th>Total</th>
                       <th>Metode</th>
                       <th>Status</th>
-                      <th>Detil</th>
                     </tr>
+                    <% transaksi.forEach(trs => { %>
+                     
                     <tr>
-                      <td>#198</td>
-                      <td>Peter</td>
-                      <td>19-20-22</td>
-                      <td>Cabe 1kg</td>
-                      <td>Rp30.000</td>
-                      <td>BCA</td>
-                      <td>In progress</td>
+                      <td><%- trs.idJual %></td>
+                      <td><%- trs.namaCustomer %></td>
+                      <td style="max-width: 13vw;"><%- trs.tanggal %></td>
+                      <td><%- trs.produk.namaProduk %> <%- trs.produk.banyakProduk %>kg</td>
+                      <td>Rp<%- trs.totalHarga %></td>
+                      <td><%- trs.metode %></td>
+                      <td><%- trs.status %></td>
                     </tr>
-                    <tr>
-                        <td>#197</td>
-                        <td>Lois</td>
-                        <td>19-20-22</td>
-                        <td>Bawang 1kg</td>
-                        <td>Rp40.000</td>
-                        <td>COD</td>
-                        <td>Finish</td>
-                    </tr>
-                    
+                    <% }) %>
                   </table>
             </div>
         </div>
