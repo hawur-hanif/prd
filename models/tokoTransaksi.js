@@ -9,11 +9,25 @@ const tokoTransaksiSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    emailPenjual: {
+        type: String,
+        required: true
+    },
     tanggal: {
         type: Date,
         default: () => Date.now(),
     },
-    total: {
+    produk: {
+        namaProduk: {
+            type: String,
+            required: true
+        },
+        banyakProduk: {
+            type: Number,
+            required: true
+        }
+    },
+    totalHarga: {
         type: Number,
         required: true
     },
@@ -25,9 +39,8 @@ const tokoTransaksiSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    detil: {
-        type: String,
-        required: true
+    selesai: {
+        type: Boolean,
     }
 
 })

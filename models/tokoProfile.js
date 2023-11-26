@@ -6,8 +6,8 @@ const tokoProfileSchema = new mongoose.Schema({
         required: true,
     },
     tokoImg : {
-        type: Buffer
-        
+        type: Buffer,
+        contentType: String
     },
     tokoNama :{
         maxLength: 20,
