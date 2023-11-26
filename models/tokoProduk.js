@@ -1,7 +1,7 @@
 const mongoose = require ('mongoose')
 
 const tokoProdukSchema = new mongoose.Schema({
-    idProdukJual: {
+    emailPenjual: {
         type: String,
         required: true,
     },
@@ -9,8 +9,8 @@ const tokoProdukSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    referrer: {
-        type: Number,
+    deskripsi: {
+        type: String,
         required: true
     },
     stok: {
@@ -20,6 +20,13 @@ const tokoProdukSchema = new mongoose.Schema({
     harga: {
         type: Number,
         required: true
+    },
+    terjual: {
+        type: Number,
+
+    },
+    rating: {
+        type: Number
     }
 
 })
