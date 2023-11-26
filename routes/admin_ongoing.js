@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-
+const tokoTransaksi = require('../models/tokoTransaksi')
 const tokoProfile = require('../models/tokoProfile')
 
 router.get('/admin-ongoing', (req,res)=>{
@@ -11,18 +11,51 @@ router.get('/admin-ongoing', (req,res)=>{
             errorMsg: "none"
     })}else { tokoProfile.findOne({emailToko: req.session.user}).then( async (r)=>{
         if(r==null){
-            res.render('pages/admin_profile', {
-                pageTitle: "admin_profile",
-                path: "admin_profile",
+            tokoProfile.find({emailToko: "defaultprop"}).then((prf)=>{
+                res.render('pages/admin_profile', {
+                    pageTitle: "Admin-Profile",
+                    path: "admin_profile",
+                    errorMsg: "none",
+                    tokoprf: prf
             })
+           })
         } else{
-            res.render('pages/admin_ongoing', {
-                pageTitle: "admin_ongoing",
-                path: "admin_ongoing",
+            tokoTransaksi.find({emailPenjual: req.session.user, selesai: false}).then((on)=>{
+                res.render('pages/admin_ongoing', {
+                    pageTitle: "Admin-ongoing",
+                    path: "admin_ongoing",
+                    errorMsg: "none",
+                    ongoing: on
             })
+           })
         }
     })}
 })
+router.post('/admin-ongoing', async (req,res)=>{
+    await tokoTransaksi.find({idJual: req.body.idItem}).then( async(id) =>{
+        if(id){
+            console.log(req.body.idItem)
+        }
+        const updatetokotransaksi = tokoTransaksi.updateOne({
+            idJual: req.body.idItem
+        }, {
+            $set: {
+            status: "selesai",
+            selesai: "true"
+        }
+        })
+        await updatetokotransaksi.updateOne()
 
+        tokoTransaksi.find({emailPenjual: req.session.user, selesai: false}).then((on)=>{
+            res.render('pages/admin_ongoing', {
+                pageTitle: "Admin-ongoing",
+                path: "admin_ongoing",
+                errorMsg: "none",
+                ongoing: on
+        })
+       })
+    })
+    
+})
 
 module.exports = router

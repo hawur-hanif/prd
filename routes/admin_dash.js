@@ -11,10 +11,14 @@ router.get('/admin-dash', (req,res)=>{
             errorMsg: "none"
     })}else { tokoProfile.findOne({emailToko: req.session.user}).then( async (r)=>{
         if(r==null){
-            res.render('pages/admin_profile', {
-                pageTitle: "admin_profile",
-                path: "admin_profile",
+            tokoProfile.find({emailToko: "defaultprop"}).then((prf)=>{
+                res.render('pages/admin_profile', {
+                    pageTitle: "Admin-Profile",
+                    path: "admin_profile",
+                    errorMsg: "none",
+                    tokoprf: prf
             })
+           })
         } else{
             res.render('pages/admin_dash', {
                 pageTitle: "admin_dash",
