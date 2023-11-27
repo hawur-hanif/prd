@@ -34,6 +34,7 @@ const tokoProdukRoutes = require('./routes/admin_produk')
 const tokoDashRoutes = require('./routes/admin_dash')
 const tokoOngoingRoutes = require('./routes/admin_ongoing')
 const tokoTransaksiRoutes = require('./routes/admin_transaksi')
+const checkoutRoutes = require('./routes/checkout')
 app.use(loginRoutes)
 app.use(signinRoutes)
 app.use(homeRoutes)
@@ -45,6 +46,7 @@ app.use(tokoProdukRoutes)
 app.use(tokoDashRoutes)
 app.use(tokoOngoingRoutes) 
 app.use(tokoTransaksiRoutes) 
+app.use(checkoutRoutes)
 
 app.get('/', (req,res)=>{
     if (req.session.userId){
@@ -54,9 +56,6 @@ app.get('/', (req,res)=>{
     }
 })
 
-app.get('/checkout',(req,res) => {
-  res.render('pages/checkout');
-});
 
 app.get('/riwayat',(req,res) => {
   res.render('pages/riwayat');

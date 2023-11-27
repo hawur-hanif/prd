@@ -26,25 +26,27 @@ router.get('/cart', async (req,res) => {
                     cart: user.cart.length == 0 ? null : cart
                 });
             })
-        })
-        
-    }
-    
+        })  
+    }    
 });
 
 router.post('/deCart', async (req,res)=>{
     await User.updateOne( {email:req.session.user}, {
         $pull: {cart : {productId: req.body.productId }}
     })
-    res.redirect('/cart')
+    res.redirect('back')
     })
 
 router.post('/chgAmount', async (req,res)=>{
     await User.updateOne( {email:req.session.user, cart: { '$elemMatch': {productId: req.body.productId} }}, {
         $set: {'cart.$.amount' : req.body.kuantitas}
     })
-    res.redirect('/cart')
+    res.redirect('back')
     })
+
+router.get('/chgAmount', (req,res)=>{
+    res.redirect('back')
+})
 
 
 

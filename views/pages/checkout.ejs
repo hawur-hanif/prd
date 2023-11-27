@@ -4,83 +4,138 @@
 -->
 <!DOCTYPE html>
 <html>
-    
+    <%- include('../reusables/head.ejs') %>
+    </head>
     <%- include('../reusables/navbar') %>
-    <link rel="stylesheet" href="../css/checkout.css">
     <body>
         <div class="main">
         <div class="left">
-            <div class="infos">
-                <h2>Informasi Kontak</h2>
-                <fieldset>
-                    <label for="first-name">Nama depan: 
-                        <input name="first-name" type="text" required /></label>
-                    <label for="last-name">Nama belakang: 
-                        <input name="last-name" type="text" required /></label>
-                    <label for="email">Email: 
-                        <input name="email" type="email" required /></label>
-                </fieldset>
-            </div>
+            <form action="/checkout" method="post" id="checkout">
 
-            <div class="infos">
-                <h2>Alamat Pengiriman</h2>
-                <fieldset>
-                    <label>Alamat: 
-                        <input type="text" required /></label>
-                    <label >Kota/Kabupaten:
-                        <input type="text" required /></label>
-                    <label >Provinsi: 
-                        <input type="email" required /></label>
-                </fieldset>
-            </div>
+                <!-- seharusnya sudah tidak perlu -->
+                <!-- <div class="infos">
+                    <h2>Informasi Kontak</h2>
+                    <fieldset>
+                        <label for="first-name">Nama depan: 
+                            <input name="first-name" type="text" required value="<%= user.namaDepan %>" /></label>
+                        <label for="last-name">Nama belakang: 
+                            <input name="last-name" type="text" required value="<%= user.namaBelakang %>"/></label>
+                        <label for="email">Email: 
+                            <input name="email" type="email" required value="<%= user.email %>" /></label>
+                    </fieldset>
+                </div> -->
+    
+                <div class="infos">
+                    <h2>Alamat Pengiriman</h2>
+                    <fieldset form="checkoout">
+                        <label>Alamat: 
+                            <input type="text" required  name="location"/></label>
+                        <label >Kota/Kabupaten:
+                            <input type="text" required name="city"/></label>
+                        <label >Provinsi: 
+                            <input type="text" required name="province"/></label>
+                    </fieldset>
+                </div>
+    
+                <div class="infos">
+                    <h2>Pembayaran</h2>
+                    <fieldset form="checkoout">
+                        <label class="metode">Metode Pembayaran
+                            <select class="metode" required name="payMethod">
+                            <option value="">(pilih satu)</option>
+                            <option value="COD (Cash On Delivery)">COD (Cash On Delivery) </option>
+                            <option value="Transfer bank">Transfer bank</option>
+                            </select>
+                        </label>
+                        <label >Nomor rekening:
+                            <input type="text" required name="bankNum" /></label>
+                    </fieldset>
+                </div>
 
-            <div class="infos">
-                <h2>Pembayaran</h2>
-                <fieldset>
-                    <label class="metode">Metode Pembayaran
-                        <select class="metode" required>
-                        <option value="">(pilih satu)</option>
-                        <option value="1">COD (Cash On Delivery) </option>
-                        <option value="2">Transfer bank</option>
-                        </select>
-                    </label>
-                    <label >Nomor rekening:
-                        <input type="text" required /></label>
-                </fieldset>
-            </div>
-
+                <input type="text" value="<%= cart.map((x)=>{ return [x[0].productId,x[1]]}) %>" name="cart" style="display: none;">
+            </form>
+            
         </div>
+
         <div class="right">
             <h2>Order</h2>
-            <div class="inline2">
-                <a href=""><img height="100px" width="120px" src="../picture/bayam.jpeg" alt=""></a>
-                <div class="cat">
-                    <p><span class="bold" >Bayam</span> <span class="bold">Rp2.000,00</span></p>
-                    <span class="inline"><p class="ket">Bayam hijau organik</p><button value="del">hapus</button></span>
-                    <div class="inline">
-                        <button>-</button>
-                        <input type="text" class="sum" value="1">
-                        <button>+</button>
+            <% cart.forEach((product,i) => { %>
+                <div class="inline2">
+                    <a href="/pembelian?<%= product[0].productId %>"><img height="100px" width="120px" src="/uploads/<%= product[0].productImgURL %>" alt="Gambar Produk"></a>
+                    <div class="cat">
+                        <p><span class="bold" ><%- product[0].productName %></span> <span class="bold">Rp <%- (product[0].productPrice*product[1]).toFixed(2).replace('.',',').replace(/\d(?=(\d{3})+\,)/g, '$&.')  %></span></p>
+                        <span class="inline"><p class="ket"><%- product[0].productDesc %></p>
+                            <form action="/deCart" method="post" id="deCart">
+                                <button value="del" type="submit">hapus</button>
+                                <input type="text" value="<%= product[0].productId %>" name="productId" style="display: none;">
+                            </form>
+                        </span>
+                        <p style="display: none;" id="remain<%= i %>"><%= product[0].productAmount %></p>
+                        <div class="inline">
+                            <button onclick="dec('<%= i %>')">-</button>
+                            <form action="/chgAmount" method="post" id="chgAmount<%= i %>">
+                                <input type="text" value="<%= product[0].productId %>" name="productId" style="display: none;">
+                                <input name="kuantitas" type="text" id="amount<%= i %>" class="sum" value="<%= product[1] %>" oninput="checkSubmit('<%= i %>')">
+                            </form>
+                            <button onclick="inc('<%= i %>')">+</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="inline2">
-                <a href=""><img height="100px" width="120px" src="../picture/bayam.jpeg" alt=""></a>
-                <div class="cat">
-                    <p><span class="bold">Bayam</span> <span class="bold">Rp2.000,00</span></p>
-                    <span class="inline"><p class="ket">Bayam hijau organik</p><button value="del">hapus</button></span>
-                    <div class="inline">
-                        <button>-</button>
-                        <input type="text" class="sum" value="1">
-                        <button>+</button>
-                    </div>
-                </div>
-            </div>
+            <% }) %>
+            
+            <script> 
+                function inc(num){
+                    let amount = document.getElementById('amount'+num)
+                    amount.value = parseInt(amount.value) + 1
+                    checkSubmit(num)                             
+                } 
+                function dec(num){
+                    let amount = document.getElementById('amount'+num)
+                    amount.value = parseInt(amount.value)==0 ? 0 : parseInt(amount.value) - 1
+                    checkSubmit(num)
+                }
+
+                function checkSubmit(num){
+                    let max = parseInt(document.getElementById('remain'+num).textContent)
+                   
+                    if (document.getElementById('amount'+num).value > max){
+                        window.alert('Pesanan melebihi stok')
+                        document.getElementById('amount'+num).value = max
+                    } 
+
+                    document.getElementById('chgAmount'+num).submit()     
+                }
+            </script>
+            
             <div class="total">
-                <p><span>Subtotal</span><span>Rp4.000,00</span></p>
-                <p><span>Ongkir</span><span>Rp1.000,00</span></p>
-                <p><span class="bold">Total</span><span class="bold">Rp5.000,00</span></p>
-                <button class="order">Order</button>
+                <% let price = cart.length == 1? [cart[0][0].productPrice*cart[0][1],1] : cart.map((a)=>{ 
+                    return [ a[0].productPrice, a[1] ]}).reduce((a,b)=>{
+                    return [ a[0]*a[1] + b[0]*b[1], 1]
+                }) %>
+                <p><span>Subtotal</span><span>Rp<%- (price[0]).toFixed(2).replace('.',',').replace(/\d(?=(\d{3})+\,)/g, '$&.') %></span></p>
+                <p><span>Ongkir</span><span>Rp10.000,00</span></p>
+                <p><span class="bold">Total</span><span class="bold">Rp<%- (price[0]+10000).toFixed(2).replace('.',',').replace(/\d(?=(\d{3})+\,)/g, '$&.') %></span></p>
+                
+                <fieldset form="checkout">
+                <button class="order" type="submit" onclick="checkSubmit()">Order</button>
+                </fieldset>
+
+                <script>
+
+                    function checkSubmit(){
+                        // console.log(document.getElementById('checkout').checkValidity())
+                        // console.log(document.getElementById('checkout').reportValidity())
+                        // console.log(document.getElementById('checkout').value)
+                        // console.log(document.getElementById('checkout').validity.valid)
+                        // console.log(document.getElementById('checkout').elements)
+                        if(document.getElementById('checkout').checkValidity()){                            
+                            document.getElementById('checkout').submit()    
+                        } else{
+                            document.getElementById('checkout').reportValidity()
+                        }
+                            
+                    }
+                </script>
             </div>
         </div>
     </body>

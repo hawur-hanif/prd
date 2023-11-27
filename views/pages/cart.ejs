@@ -36,7 +36,7 @@
                     <p>Kamu belum memasukkan produk ke dalam keranjang</p>
                     <button onclick="window.location.href = '/homeload'" type="button" class="buy">Beli Sekarang!</button>
                 <% } else { %>
-                    <% cart.forEach((product)=>{ %>                     
+                    <% cart.forEach((product,i)=>{ %>                     
                         <li class="checkout">
                             <div class="checkoutContainer" id="product">
                                 <div id="checkoutImg">
@@ -47,10 +47,10 @@
                                     <h3><%- product[0].productName %></h3>
                                     </div>
                                     <div id="remain">
-                                    <p>tersedia :</p><p><%- product[0].productAmount %> kg</p>
+                                    <p>tersedia :</p><p id="remain<%= i %>"><%- product[0].productAmount %> kg</p>
                                     </div>
-                                    <div id="remove" onclick="document.getElementById('deCart').submit();console.log('submit bitcj')">
-                                    <form action="/deCart" method="post" id="deCart">
+                                    <div id="remove" onclick="document.getElementById('deCart<%= i %>').submit()">
+                                    <form action="/deCart" method="post" id="deCart<%= i %>">
                                         <input type="text" value="<%= product[0].productId %>" name="productId" style="display: none;">
                                         <input type="button" id="removeItem" ><i class="fa-solid fa-trash"></i> hapus
                                     </form>
@@ -58,20 +58,11 @@
                                 </div>
                             </div>
                             <div class="checkoutContainer" id="quantity">
-                                <form action="/chgAmount" method="post" id="chgAmount">
+                                <form action="/chgAmount" method="post" id="chgAmount<%= i %>">
                                     <input type="text" value="<%= product[0].productId %>" name="productId" style="display: none;">
-                                    <input type="text" name="kuantitas" id="item" value="<%= product[1] %>" onchange="checkWeight()" >Kg
+                                    <input type="text" name="kuantitas" id="item" class="item<%= i %>" value="<%= product[1] %>" onchange="checkWeight('<%= i %>')" >Kg
                                 </form>
-                                <script> 
-                                    function checkWeight(){
-                                        let max = new Number('<%= product[0].productAmount %>')
-                                        if (document.getElementById('item').value > max){
-                                            window.alert('Pesanan melebihi stok')
-                                            document.getElementById('item').value = max
-                                        } 
-                                        document.getElementById('chgAmount').submit()                                    
-                                    } 
-                                </script>
+                                
                             </div>
                             <div class="checkoutContainer" id="price">
                                 <p>Rp <%- (product[0].productPrice).toFixed(2).replace('.',',').replace(/\d(?=(\d{3})+\,)/g, '$&.')  %>/Kg</p>
@@ -81,6 +72,20 @@
                             </div>
                         </li>
                     <% }) %>
+                    <script> 
+                        function checkWeight(num){
+                            let max = parseInt(document.getElementById('remain'+num).textContent)
+                            
+                            console.log(max)
+                            console.log(document.getElementsByClassName('item'+num)[0].value)
+                            if (document.getElementsByClassName('item'+num)[0].value > max){
+                                window.alert('Pesanan melebihi stok')
+                                document.getElementsByClassName('item'+num)[0].value = max
+                            } 
+                            document.getElementById('chgAmount'+num).submit()                                    
+                        } 
+                    </script>
+
                 <% } %>
             </ul>
         </div>

@@ -29,7 +29,8 @@ router.post('/login', async (req,res)=>{
             });    
         }
     })
-    .catch(()=>{
+    .catch((err)=>{
+        console.log(err);
         res.render('pages/login', {
             pageTitle: "Login",
             path: "login",
