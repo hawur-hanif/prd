@@ -1,61 +1,107 @@
-const express = require('express')
-const router = express.Router()
-const tokoTransaksi = require('../models/tokoTransaksi')
-const tokoProfile = require('../models/tokoProfile')
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale1.0">
+        <link rel="stylesheet" href="../css/admin_ongoing.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    </head> 
 
-router.get('/admin-ongoing', (req,res)=>{
-    if (req.session.user === undefined){
-        res.render('pages/login', {
-            pageTitle: "Login",
-            path: "login",
-            errorMsg: "none"
-    })}else { tokoProfile.findOne({emailToko: req.session.user}).then( async (r)=>{
-        if(r==null){
-            tokoProfile.find({emailToko: "defaultprop"}).then((prf)=>{
-                res.render('pages/admin_profile', {
-                    pageTitle: "Admin-Profile",
-                    path: "admin_profile",
-                    errorMsg: "none",
-                    tokoprf: prf
-            })
-           })
-        } else{
-            tokoTransaksi.find({emailPenjual: req.session.user, selesai: false}).then((on)=>{
-                res.render('pages/admin_ongoing', {
-                    pageTitle: "Admin-ongoing",
-                    path: "admin_ongoing",
-                    errorMsg: "none",
-                    ongoing: on
-            })
-           })
-        }
-    })}
-})
-router.post('/admin-ongoing', async (req,res)=>{
-    await tokoTransaksi.find({idJual: req.body.idItem}).then( async(id) =>{
-        if(id){
-            console.log(req.body.idItem)
-        }
-        const updatetokotransaksi = tokoTransaksi.updateOne({
-            idJual: req.body.idItem
-        }, {
-            $set: {
-            status: "selesai",
-            selesai: "true"
-        }
-        })
-        await updatetokotransaksi.updateOne()
+    <body>
+        <nav class="sidebar">
+            <div class="sidebar__top-content">
+                <a href=""><img height="108px" width="192px" src="../picture/logo.png" alt=""></a>
+            </div>
+            <ul class="sidebar__links"style="margin-left: -20px; margin-top: -25px">
 
-        tokoTransaksi.find({emailPenjual: req.session.user, selesai: false}).then((on)=>{
-            res.render('pages/admin_ongoing', {
-                pageTitle: "Admin-ongoing",
-                path: "admin_ongoing",
-                errorMsg: "none",
-                ongoing: on
-        })
-       })
-    })
-    
-})
+                <p class="main_nav">MAIN MENU</p>
 
-module.exports = router
+                <li class="sidebar__link">
+                    <a href="admin-dash">
+                        <i class='sidebar__link-icon bx bxs-home' ></i>
+                        <span class="sidebar__link-name">Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="sidebar__link">
+                    <a href="/admin-toko">
+                        <i class='sidebar__link-icon bx bxs-store'></i>
+                        <span class="sidebar__link-name">Profil Toko</span>
+                    </a>
+                </li>
+
+                <li class="sidebar__link">
+                    <a href="/admin-ongoing">
+                        <i class='sidebar__link-icon bx bxs-cart alt' style="color: #E76F51;"></i>
+                        <span class="sidebar__link-name" style="color: #E76F51;">Ongoing Order</span>
+                    </a>
+                </li>
+
+                <li class="sidebar__link">
+                    <a href="/admin-transaksi">
+                        <i class='sidebar__link-icon bx bx-money-withdraw'></i>
+                        <span class="sidebar__link-name">Transaksi</span>
+                    </a>
+                </li>
+
+                <li class="sidebar__link">
+                    <a href="admin-produk">
+                        <i class='sidebar__link-icon bx bxs-cube'></i>
+                        <span class="sidebar__link-name">List Produk</span>
+                    </a>
+                </li>
+
+            </ul>
+
+            <div class="out">
+                <a href="/home">
+                    <button style="background-color: #2A9D8F;">Keluar Dari Toko</button>
+                </a>
+            </div>
+        </nav>
+
+        <div class="right">
+            <h1 style="margin-left: 30px; margin-top: 60px;">Ongoing Order</h1>
+
+            <form>
+                <input class="search" type="text" placeholder="cari...     " style="float: inline-end; margin-right: 30px; margin-bottom: 30px; height: 35px; font-size: 16px;">
+            </form>
+
+            <div class="table-wrap" style="display: block;">
+                <table>
+                    <tr>
+                      <th>ID</th>
+                      <th>Customer</th>
+                      <th>Tanggal</th>
+                      <th>Produk</th>
+                      <th>Total</th>
+                      <th>Metode</th>
+                      <th>Status</th>
+                      <th>Selesai</th>
+                    </tr>
+
+                    <% ongoing.forEach(ongo => { %>
+                  
+                    <tr>
+                      <td><%- ongo.idJual %></td>
+                      <td><%- ongo.namaCustomer %></td>
+                      <td style="max-width: 15vw;"><%- ongo.tanggal %></td>
+                      <td><%- ongo.produk.namaProduk %> <%- ongo.produk.banyakProduk %>kg</td>
+                      <td>Rp<%- ongo.totalHarga %></td>
+                      <td><%- ongo.metode %></td>
+                      <td><%- ongo.status %></td>
+                      <td><form action="/admin-ongoing" method="post">
+                        <input type="text" value="<%- ongo.idJual %>" style="display: none;" name="idItem">
+                        <button style="width: 6vw;" type="submit">selesai</button></form></td>
+                    </tr>
+                       
+                    <% }) %>
+                    
+                  </table>
+            </div>
+        </div>
+
+    </body>
+
+</html>
