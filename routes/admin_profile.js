@@ -51,13 +51,6 @@ router.post('/admin-toko', async (req,res)=>{
                 }
             })
             await tokoprofile.save()
-            if(req.body.imgToko){
-                const updatetokoProfile = tokoProfile.updateOne({emailToko: req.session.user}, {$set: {tokoImg: req.body.imgToko}})
-                await updatetokoProfile.updateOne()
-            } else{
-                const updatetokoProfile = tokoProfile.updateOne({emailToko: req.session.user}, {$set: {tokoImg: tokoProfile.where("defaultprop").select("tokoImg")}})
-                await updatetokoProfile.updateOne()
-            }
             tokoProfile.find({emailToko: req.session.user}).then((profil)=>{
                 res.render('pages/admin_profile', {
                     pageTitle: "Admin-Profile",
@@ -84,10 +77,6 @@ router.post('/admin-toko', async (req,res)=>{
                 }
             })
             await updatetokoProfile.updateOne()
-            if(req.body.imgToko){
-                const updatetokoProfile = tokoProfile.updateOne({emailToko: req.session.user}, {$set: {tokoImg: req.body.imgToko}})
-                await updatetokoProfile.updateOne()
-            }
             tokoProfile.find({emailToko: req.session.user}).then((profil)=>{
                 res.render('pages/admin_profile', {
                     pageTitle: "Admin-Profile",
