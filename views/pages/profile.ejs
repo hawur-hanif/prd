@@ -71,11 +71,10 @@
         <% if (errMsg=="none") { %>
             <div class="left" >
                 <div class="imgProfile">
-                    <% if (user.userImg.data == undefined) { %>
+                    <% if (user.userImgURL  == undefined) { %>
                         <img src="../picture/defaultProfile.jpg" alt="profile picture" class="pictSquare">
                     <% } else { %>
-                        <img src="data:image/<%=user.userImg.contentType%>;base64,
-                        <%=user.userImg.data.toString('base64')%>" alt="profile picture" class="pictSquare">
+                        <img src="/uploads/<%= user.userImgURL %>"alt="profile picture" class="pictSquare">
                     <% } %>
                 </div>
                 <div class="underImg">
@@ -88,19 +87,19 @@
 
             <div class="right">
                 <div class="view" id="penggunaDesc">
-                    <form action="">
+                    <form action="/profile" method="post" enctype="multipart/form-data">
                     <div class="profile">
                         <div id="firstName">
                             <h3>Nama Depan</h3>
-                            <input type="text" id="name" value="<%- user.namaDepan %>" disabled required>
+                            <input type="text" id="name" value="<%- user.namaDepan %>" disabled name="namaDepan">
                         </div>
                         <div id="lastName">
                             <h3>Nama belakang</h3>
-                            <input type="text" id="namel" value="<%= user.namaBelakang %>" disabled required>
+                            <input type="text" id="namel" value="<%- user.namaBelakang %>" disabled name="namaBelakang">
                         </div>
                         <div id="displayName">
                             <h3>Nama display</h3>
-                            <input type="text" id="named" value="<%- user.username %>" disabled required>
+                            <input type="text" id="named" value="<%- user.username %>" disabled name="username">
                         </div>
                         <div id="Email">
                             <h3>Email</h3>
@@ -109,7 +108,7 @@
                         <div class="profilButton">
                             <button onclick="edit()" id="editButton" type="button" class="editing">Edit profil</button>
                             <label for="profilePict" class="hidden" id="pictprf">Ganti foto profil</label>
-                            <input type="file" id="profilePict" accept="image/*" style="display: none;" >
+                            <input type="file" id="profilePict" accept="image/*" style="display: none;" name="img">
                             <button type="submit" class="submitting hidden" id="submitprf">Ganti</button>
                         </div>
                     </div>

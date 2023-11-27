@@ -17,15 +17,14 @@ const userSchema = new mongoose.Schema({
     namaDepan: {
         type: String
     },
-    nameBelakang: {
+    namaBelakang: {
         type: String
     },
     cart:[{
         productId: String, amount: Number
     }],
-    userImg: {
-        contentType: String,
-        data: Buffer
+    userImgURL: {
+        type: String
     }
 })
 

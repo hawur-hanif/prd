@@ -45,8 +45,6 @@ const storage = multer.diskStorage({
 const upload = multer({storage:storage})
 const path = require('path')
 const id = require('./id.json')
-const { default: mongoose } = require('mongoose')
-const catalogue = require('../models/catalogue')
 
 router.get('/postProduct',(req,res) => {
     res.render('pages/postProduct');
