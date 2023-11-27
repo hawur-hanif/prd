@@ -35,6 +35,7 @@ const tokoDashRoutes = require('./routes/admin_dash')
 const tokoOngoingRoutes = require('./routes/admin_ongoing')
 const tokoTransaksiRoutes = require('./routes/admin_transaksi')
 const checkoutRoutes = require('./routes/checkout')
+const riwayatRoutes = require('./routes/riwayat')
 app.use(loginRoutes)
 app.use(signinRoutes)
 app.use(homeRoutes)
@@ -47,6 +48,7 @@ app.use(tokoDashRoutes)
 app.use(tokoOngoingRoutes) 
 app.use(tokoTransaksiRoutes) 
 app.use(checkoutRoutes)
+app.use(riwayatRoutes)
 
 app.get('/', (req,res)=>{
     if (req.session.userId){
@@ -55,11 +57,6 @@ app.get('/', (req,res)=>{
         res.redirect('/login')
     }
 })
-
-
-app.get('/riwayat',(req,res) => {
-  res.render('pages/riwayat');
-});
 
 app.get('/tes',(req,res) => {
   res.render('pages/tes');
