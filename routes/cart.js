@@ -17,8 +17,12 @@ router.get('/cart', async (req,res) => {
             let ids = user.cart.map((x)=>{
                 return x.productId
             })
-            await Catalogue.find({productId: ids}).then(product=>{
+
+            console.log(ids)
+            await Catalogue.find({productId: ids}).sort({productId : 1}).then(product=>{
+                console.log(product)
                 let cart = product.map((x,i)=>{return [x,user.cart[i].amount]})
+                console.log(cart)
                 res.render('pages/cart', {
                     pageTitle: "Cart",
                     path: "cart",
@@ -31,6 +35,7 @@ router.get('/cart', async (req,res) => {
 });
 
 router.post('/deCart', async (req,res)=>{
+    console.log(req.body)
     await User.updateOne( {email:req.session.user}, {
         $pull: {cart : {productId: req.body.productId }}
     })
@@ -38,6 +43,7 @@ router.post('/deCart', async (req,res)=>{
     })
 
 router.post('/chgAmount', async (req,res)=>{
+    console.log(req.body)
     await User.updateOne( {email:req.session.user, cart: { '$elemMatch': {productId: req.body.productId} }}, {
         $set: {'cart.$.amount' : req.body.kuantitas}
     })

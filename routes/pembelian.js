@@ -39,7 +39,8 @@ router.get('/pembelian', async (req,res) => {
 
 router.post('/pembelian', async (req,res)=>{
     let item = { productId: req.body.productId, amount: req.body.amount}
-    await User.findOneAndUpdate({email:req.session.user}, { $push: {cart: item } })
+    console.log(item)
+    await User.findOneAndUpdate({email:req.session.user}, { $push: {cart: { $each:[item], $sort: {productId:1}}} })
     res.redirect('/cart')
 })
 
